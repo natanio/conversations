@@ -6,7 +6,7 @@ Chatroom::Application.routes.draw do
     end
   end
 
-  root 'hangouts#index'
+  root 'languages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
