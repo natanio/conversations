@@ -1,4 +1,4 @@
-<%= form_for(@hangout) do |f| %>
+<%= form_for [@language, @hangout] do |f| %>
   <% if @hangout.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@hangout.errors.count, "error") %> prohibited this hangout from being saved:</h2>
@@ -14,10 +14,6 @@
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :language_id %><br>
-    <%= f.number_field :language_id %>
   </div>
 
   <div class="field">

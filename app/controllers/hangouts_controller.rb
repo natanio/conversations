@@ -1,5 +1,6 @@
 class HangoutsController < ApplicationController
   before_action :set_hangout, only: [:show, :edit, :update, :destroy]
+  before_action :set_language
 
   # GET /hangouts
   # GET /hangouts.json
@@ -65,6 +66,10 @@ class HangoutsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_hangout
       @hangout = Hangout.find(params[:id])
+    end
+
+    def set_language
+      @language = Language.find(params[:language_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
