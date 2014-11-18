@@ -5,7 +5,6 @@
     <tr>
       <th>Name</th>
       <th>Language</th>
-      <th>Post</th>
       <th>Private</th>
       <th></th>
       <th></th>
@@ -18,11 +17,10 @@
       <tr>
         <td><%= hangout.name %></td>
         <td><%= hangout.language_id %></td>
-        <td><%= hangout.post_id %></td>
         <td><%= hangout.private %></td>
-        <td><%= link_to 'Show', hangout %></td>
-        <td><%= link_to 'Edit', edit_hangout_path(hangout) %></td>
-        <td><%= link_to 'Destroy', hangout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', language_hangout_path(@language, hangout) %></td>
+        <td><%= link_to 'Edit', edit_language_hangout_path(@language, hangout) %></td>
+        <td><%= link_to 'Destroy', language_hangout_path(@language, hangout), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Hangout', new_language_hangout_path(@hangout) %>
+<%= link_to 'New Hangout', new_language_hangout_path(@language, @hangout) %>

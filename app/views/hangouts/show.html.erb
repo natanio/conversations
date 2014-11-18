@@ -11,14 +11,9 @@
 </p>
 
 <p>
-  <strong>Post:</strong>
-  <%= @hangout.post_id %>
-</p>
-
-<p>
   <strong>Private:</strong>
   <%= @hangout.private %>
 </p>
 
-<%= link_to 'Edit', edit_hangout_path(@hangout) %> |
-<%= link_to 'Back', hangouts_path %>
+<%= link_to 'Edit', edit_language_hangout_path(@language, @hangout) %> |
+<%= link_to 'Back', language_hangouts_path(@language) %>
