@@ -1,0 +1,33 @@
+<h1>Listing hangouts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Language</th>
+      <th>Post</th>
+      <th>Private</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hangouts.each do |hangout| %>
+      <tr>
+        <td><%= hangout.name %></td>
+        <td><%= hangout.language_id %></td>
+        <td><%= hangout.post_id %></td>
+        <td><%= hangout.private %></td>
+        <td><%= link_to 'Show', hangout %></td>
+        <td><%= link_to 'Edit', edit_hangout_path(hangout) %></td>
+        <td><%= link_to 'Destroy', hangout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hangout', new_hangout_path %>

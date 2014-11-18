@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @hangout.name %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @hangout.language_id %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @hangout.post_id %>
+</p>
+
+<p>
+  <strong>Private:</strong>
+  <%= @hangout.private %>
+</p>
+
+<%= link_to 'Edit', edit_hangout_path(@hangout) %> |
+<%= link_to 'Back', hangouts_path %>
