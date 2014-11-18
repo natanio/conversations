@@ -1,6 +1,10 @@
 Chatroom::Application.routes.draw do
   devise_for :users
-  resources :hangouts
+  resources :languages do
+    resources :hangouts do
+      resources :posts
+    end
+  end
 
   root 'hangouts#index'
 
