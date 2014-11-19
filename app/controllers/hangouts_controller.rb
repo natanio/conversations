@@ -11,7 +11,7 @@ class HangoutsController < ApplicationController
   # GET /hangouts/1
   # GET /hangouts/1.json
   def show
-    @posts = Post.all
+    @posts = Post.where(hangout_id: @hangout.id)
   end
 
   # GET /hangouts/new
@@ -27,10 +27,12 @@ class HangoutsController < ApplicationController
   # POST /hangouts.json
   def create
     @hangout = Hangout.new(hangout_params)
+    @hangout.language_id = @language.id
+    @hangout.save
 
     respond_to do |format|
       if @hangout.save
-        format.html { redirect_to @hangout, notice: 'Hangout was successfully created.' }
+        format.html { redirect_to language_hangout_path(@language,@hangout), notice: 'Hangout was successfully created.' }
         format.json { render action: 'show', status: :created, location: @hangout }
       else
         format.html { render action: 'new' }
@@ -58,7 +60,7 @@ class HangoutsController < ApplicationController
   def destroy
     @hangout.destroy
     respond_to do |format|
-      format.html { redirect_to hangouts_url }
+      format.html { redirect_to language_hangouts_path(@language) }
       format.json { head :no_content }
     end
   end
