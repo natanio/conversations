@@ -1,9 +1,10 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="small-12 medium-12 large-12 columns">
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @hangout.name %>
-</p>
+	<h2><%= @hangout.name %></h2>
+  </div>
+</div>
 
 <%= render partial: 'posts/index', locals: {language: @language, hangout: @hangout} %>
 

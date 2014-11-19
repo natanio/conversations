@@ -1,24 +1,21 @@
-<h1>Listing languages</h1>
+<div class="row">
+  <div class="small-12 medium-12 large-12 columns">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @languages.each do |language| %>
-      <tr>
-        <td><%= language.name %></td>
-        <td><%= link_to 'Show', language %></td>
-        <td><%= link_to 'Edit', edit_language_path(language) %></td>
-        <td><%= link_to 'Destroy', language, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New language', new_language_path(@language) %>
+    <h1>Choose a Language</h1>
+    <div class="panel callout radius">
+      <h3>What language do you want to practice?</h3>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="small-12 medium-12 large-12 columns">
+        <% @languages.each do |language| %>
+        <%= link_to language.name, language_hangouts_path(language), class: "button" %>
+          
+        <% end %>
+      
+    </div>
+    <div class="panel small-12 medium-12 large-12 columns">
+      <%= link_to 'New language', new_language_path(@language), class: "button tiny round success center" %>
+    </div>
+</div>
