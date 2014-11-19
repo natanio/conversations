@@ -1,4 +1,12 @@
-var new_post = $("<%= escape_javascript(render(partial: @post))%>").hide();
-$('#posts').prepend(new_post);
-$('#post_<%= @post.id %>').fadeIn('slow');
-$('#new_post')[0].reset();
+publisher = client.publish('/posts', {
+  message: '<%= j render @post %>'
+});
+ 
+publisher.callback(function() {
+  $('#post_content').val('');
+  $('#new_post').find("input[type='submit']").val('Submit').prop('disabled', false)
+});
+ 
+publisher.errback(function() {
+  alert('There was an error while posting your comment.');
+});
