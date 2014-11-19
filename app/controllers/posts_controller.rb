@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_hangout, only: [:create]
+  before_action :authenticate_user!, only: [:create]
   def index
   	@posts = Post.all
   end
@@ -7,13 +8,13 @@ class PostsController < ApplicationController
   def create
   	@post = Post.new(post_params)
     @post.hangout_id = @hangout.id
-    @post.save
+    @post.user_id = current_user.id
 
   	respond_to do |format|
   		if @post.save
   			format.js # Will search for create.js.erb
   		else
-  			format.html { render language_hangout_posts_path(@language, @hangout, @post) }
+  			format.html { render language_hangout_path(@language, @hangout) }
   		end
   	end
   end
