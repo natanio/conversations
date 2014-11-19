@@ -11,6 +11,7 @@ class HangoutsController < ApplicationController
   # GET /hangouts/1
   # GET /hangouts/1.json
   def show
+    @posts = Post.all
   end
 
   # GET /hangouts/new

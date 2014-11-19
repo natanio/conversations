@@ -5,15 +5,7 @@
   <%= @hangout.name %>
 </p>
 
-<p>
-  <strong>Language:</strong>
-  <%= @hangout.language_id %>
-</p>
-
-<p>
-  <strong>Private:</strong>
-  <%= @hangout.private %>
-</p>
+<%= render partial: 'posts/index', locals: {language: @language, hangout: @hangout} %>
 
 <%= link_to 'Edit', edit_language_hangout_path(@language, @hangout) %> |
 <%= link_to 'Back', language_hangouts_path(@language) %>
