@@ -6,7 +6,7 @@ class HangoutsController < ApplicationController
   # GET /hangouts
   # GET /hangouts.json
   def index
-    @hangouts = Hangout.all
+    @hangouts = Hangout.where(language_id: @language.id)
   end
 
   # GET /hangouts/1
