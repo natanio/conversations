@@ -1,24 +1,21 @@
-<h1>Listing hangouts</h1>
+<div class="row">
+  <div class="small-12 medium-12 large-12">
+    <h1>Join a Conversation About <%= @language.name.capitalize %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
+      <%= link_to 'New Hangout', new_language_hangout_path(@language, @hangout), class: "button" %>
+  </div>
+</div>
 
-  <tbody>
     <% @hangouts.each do |hangout| %>
-      <tr>
-        <td><%= hangout.name %></td>
-        <td><%= link_to 'Show', language_hangout_path(@language, hangout) %></td>
-        <td><%= link_to 'Edit', edit_language_hangout_path(@language, hangout) %></td>
-        <td><%= link_to 'Destroy', language_hangout_path(@language, hangout), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="row panel box">
+        <div class="small-12 medium-12 large-12">
+        <%= hangout.name %>
+        <%= link_to 'Show', language_hangout_path(@language, hangout) %>
+        <%= link_to 'Edit', edit_language_hangout_path(@language, hangout) %>
+        <%= link_to 'Destroy', language_hangout_path(@language, hangout), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+     
     <% end %>
-  </tbody>
-</table>
-
 <br>
 
-<%= link_to 'New Hangout', new_language_hangout_path(@language, @hangout) %>

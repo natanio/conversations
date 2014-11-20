@@ -1,27 +1,31 @@
-<%= form_for [@language, @hangout] do |f| %>
-  <% if @hangout.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@hangout.errors.count, "error") %> prohibited this hangout from being saved:</h2>
+<div class="row panel">
+  <div class="small-12 medium-12 large-8">
+    <%= form_for [@language, @hangout] do |f| %>
+      <% if @hangout.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@hangout.errors.count, "error") %> prohibited this hangout from being saved:</h2>
 
-      <ul>
-      <% @hangout.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+          <ul>
+          <% @hangout.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
 
-  <div class="field">
-    <%= f.label :private %><br>
-    Check if you'd like to make this chatroom private:
-    <%= f.check_box :private %>
+      <div class="field">
+        <%= f.label :private %><br>
+        Check if you'd like to make this chatroom private:
+        <%= f.check_box :private %>
+      </div>
+      <div class="actions">
+        <%= f.submit class: "button success" %>
+      </div>
+    <% end %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
