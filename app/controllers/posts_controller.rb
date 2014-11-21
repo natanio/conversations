@@ -2,7 +2,11 @@ class PostsController < ApplicationController
   before_action :set_hangout, only: [:create]
   before_action :authenticate_user!, only: [:create]
   def index
-  	@posts = Post.all
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag])
+    else
+      @posts = Post.all
+    end
   end
 
   def create

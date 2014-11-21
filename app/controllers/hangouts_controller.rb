@@ -12,7 +12,11 @@ class HangoutsController < ApplicationController
   # GET /hangouts/1
   # GET /hangouts/1.json
   def show
-    @posts = Post.where(hangout_id: @hangout.id)
+    if params[:tag]
+      @posts = Post.where(hangout_id: @hangout.id).tagged_with(params[:tag])
+    else
+      @posts = Post.where(hangout_id: @hangout.id)
+    end
   end
 
   # GET /hangouts/new

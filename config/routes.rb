@@ -2,7 +2,8 @@ Chatroom::Application.routes.draw do
   devise_for :users
   resources :languages do
     resources :hangouts do
-      resources :posts
+      resources :posts, only: [:create]
+      get 'tags/:tag', to: 'hangouts#show', as: "tag"
     end
   end
 
