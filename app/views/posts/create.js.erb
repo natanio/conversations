@@ -4,7 +4,8 @@ publisher = client.publish('/posts', {
  
 publisher.callback(function() {
   $('#post_content').val('');
-  $('#new_post').find("input[type='submit']").val('Submit').prop('disabled', false)
+  $('#post_all_tags').val('');
+  $('#new_post').find("input[type='submit']").val('Post').prop('disabled', false)
 });
  
 publisher.errback(function() {
