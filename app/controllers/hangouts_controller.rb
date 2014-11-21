@@ -73,7 +73,7 @@ class HangoutsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_hangout
-      @hangout = Hangout.find(params[:id])
+      @hangout = Hangout.find(params[:hangout_id]) rescue Hangout.find(params[:id])
     end
 
     def set_language

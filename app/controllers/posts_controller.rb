@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_hangout, only: [:create]
+  before_action :set_hangout, :set_language, only: [:create]
   before_action :authenticate_user!, only: [:create]
   def index
     if params[:tag]
@@ -29,6 +29,9 @@ class PostsController < ApplicationController
     @hangout = Hangout.find(params[:hangout_id])
   end
 
+  def set_language
+    @language = Language.find(params[:language_id])
+  end
   def post_params
   	params.require(:post).permit(:author, :content, :all_tags)
   end
