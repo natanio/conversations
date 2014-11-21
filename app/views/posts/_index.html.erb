@@ -1,7 +1,12 @@
 <div class="row mt pt">
   <div class="large-5 columns">
     <div class="top-pad glassy-bg">
-      <%= render partial: "posts/new" %>
+      <% unless user_signed_in? %>
+      <h3>To join this conversation, you need to 'Sign In.'
+        <%= link_to 'Sign In', new_user_session_path, class: "button" %>
+      <% else %>
+        <%= render partial: "posts/new" %>
+      <% end %>
     </div>
     <div class="tags-cloud glassy-bg">
       <h4>Tags Cloud</h4>
