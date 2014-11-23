@@ -2,11 +2,11 @@
   <div class="small-12 medium-12 large-12 columns">
 
     <h1>Choose a Language</h1>
-    <div class="panel callout radius">
+    <div class="panel callout radius small-12 medium-12 large-12 columns">
       <h3>What language do you want to practice?</h3>
     </div>
   </div>
-</div>
+
 <div class="row">
     <div class="small-12 medium-12 large-12 columns">
         <% @languages.each do |language| %>
@@ -15,7 +15,9 @@
         <% end %>
       
     </div>
-    <div class="panel small-12 medium-12 large-12 columns">
+  </div>
+    <div class="panel">
       <%= link_to 'New language', new_language_path(@language), class: "button tiny round success center" %>
     </div>
+</div>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121001627) do
+ActiveRecord::Schema.define(version: 20141123213104) do
 
   create_table "hangouts", force: true do |t|
     t.string   "name"
@@ -44,8 +44,10 @@ ActiveRecord::Schema.define(version: 20141121001627) do
     t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "hangout_id"
   end
 
+  add_index "taggings", ["hangout_id"], name: "index_taggings_on_hangout_id"
   add_index "taggings", ["post_id"], name: "index_taggings_on_post_id"
   add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
 
