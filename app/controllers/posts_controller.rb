@@ -3,9 +3,9 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
   def index
     if params[:tag]
-      @posts = Post.where(hangout_id: @hangout.id).tagged_with(params[:tag])
+      @posts = @hangout.posts.tagged_with(params[:tag])
     else
-      @posts = Post.where(hangout_id: @hangout.id)
+      @posts = @hangout.posts
     end
   end
 
