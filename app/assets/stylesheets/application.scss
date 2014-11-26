@@ -15,7 +15,12 @@
  *= require_tree .
  */
 
-
+.hero {
+	background: rgb(154, 178, 239);
+	height: auto;
+	text-align: center;
+	padding: 4em;
+}
 
 a.button, a.button:visited {
 	color: white;
