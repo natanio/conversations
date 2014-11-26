@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require faye
 //= require posts
+//= require masonry/jquery.masonry
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

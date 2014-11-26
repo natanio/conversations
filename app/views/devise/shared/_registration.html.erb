@@ -1,0 +1,24 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= devise_error_messages! %>
+
+<div class="row">
+	<h2>Sign Up</h2>
+		<div class="small-12 medium-12 large-12 columns">
+		<%= f.email_field :email, placeholder: "Enter your email", autofocus: true %>
+		</div>
+			
+		<div class="small-12 medium-12 large-12 columns">
+		<%= f.password_field :password, placeholder: "Enter a password", autocomplete: "off" %>
+		</div>
+			
+		<div class="small-12 medium-12 large-12 columns">
+		<%= f.password_field :password_confirmation, placeholder: "Confirm your password", autocomplete: "off" %>
+		</div>
+
+		<div class="small-12 medium-12 large-12">
+			<%= f.submit "Sign up", class: "button success large" %>
+		</div>
+
+</div>
+	<% end %>
+	

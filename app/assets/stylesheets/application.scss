@@ -10,11 +10,56 @@
  *
  *= require_self
  *= require foundation_and_overrides
+ *= require 'masonry/transitions'
  *= require tags
  *= require_tree .
  */
 
+.hero {
+	background: #9b59b6;
+	height: auto;
+	text-align: center;
+	padding: 4em;
+	color: white;
+	border-bottom: 1px solid #794290;
+}
 
+.hero h1 {
+	color: white;
+}
+
+.hero input[type="password"], .hero input[type="email"] {
+-webkit-appearance: none;
+-webkit-border-radius: 0px;
+background-color: white;
+font-family: inherit;
+border: 1px solid #8e44ad;
+box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+color: rgba(0, 0, 0, 0.75);
+display: block;
+font-size: 0.875rem;
+margin: 0 0 1rem 0;
+padding: 0.5rem;
+height: 2.3125rem;
+width: 100%;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
+}
+
+.hero input[type="password"]:focus, .hero input[type="email"]:focus {
+	border-color: #7B3A96;
+	box-shadow:0 0 5px #612779;
+}
+
+.hero a.button.secondary.large {
+color: rgb(81, 81, 81);
+}
+
+.big-bottom {
+	margin-bottom: 55px;
+}
 
 a.button, a.button:visited {
 	color: white;
@@ -22,4 +67,17 @@ a.button, a.button:visited {
 
 .center {
 	margin: 0 auto;
+}
+
+#pins {
+  margin: 0 auto;
+}
+
+.box {
+  margin: 5px;
+  width: 214px;
+}
+
+.box img {
+  width: 100%;
 }

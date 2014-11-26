@@ -1,4 +1,7 @@
-<div class="orbit-container row">
+<% unless user_signed_in? %>
+<%= render 'layouts/welcome' %>
+<% else %>
+  <div class="orbit-container row">
   <div class="small-12 medium-12 large-12 columns">
 
     <h1>Choose a Language</h1>
@@ -9,9 +12,14 @@
 
 <div class="row">
     <div class="small-12 medium-12 large-12 columns">
+
+</div>
+    <div class="row">
+      <div id="pins" class="transitions-enabled small-12 medium-9 large-7">
         <% @languages.each do |language| %>
-        <%= link_to language.name, language_hangouts_path(language), class: "button" %>
-          
+        <div class="box panel">
+          <%= link_to language.name, language_hangouts_path(language) %>
+        </div>
         <% end %>
       
     </div>
@@ -21,3 +29,11 @@
     </div>
 </div>
 </div>
+        
+      </div>
+
+    <div class="panel small-12 medium-12 large-12 columns">
+      <%= link_to 'New language', new_language_path(@language), class: "button tiny round success center" %>
+    </div>
+</div>
+<% end %>

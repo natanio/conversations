@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @hangout %> |
-<%= link_to 'Back', hangouts_path %>
+<%= link_to 'Show', language_hangout_path(@language, @hangout) %> |
+<%= link_to 'Back', language_hangouts_path(@language) %>
