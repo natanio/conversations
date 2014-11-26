@@ -1,16 +1,16 @@
-<div class="row text-center">
+<div class="text-center">
   <%= form_for([@language, @hangout, Post.new], remote: true) do |f| %>
 
-    <div class="large-10 large-centered columns">
-      <%= f.text_area :content, placeholder: "Your post", rows: 5 %>
+    <div class="medium-12 large-12 large-centered columns">
+      <%= f.text_area :content, placeholder: "Your comment", rows: 5 %>
     </div>
 
-    <div class="large-10 large-centered columns">
+    <div class="medium-12 large-12 large-centered columns">
       <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
     </div>
     
-    <div class="large-10 large-centered columns">
-      <%= f.submit "Post", class: "button"%>
+    <div class="medium-12 large-12 large-centered columns">
+      <%= f.submit "Post", class: "button round secondary" %>
     </div>
   <% end %>
 </div>
