@@ -28,6 +28,7 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'faye-rails', '~> 2.0'
 gem 'thin'
+gem 'masonry-rails'
 
 group :development, :test do
      gem 'sqlite3'
