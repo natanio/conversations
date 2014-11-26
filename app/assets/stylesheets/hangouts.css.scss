@@ -1,3 +1,17 @@
 // Place all the styles related to the Hangouts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.conversation-title {
+	background: rgb(237, 237, 237);
+	padding: 15px 30px;
+}
+
+.conversation-sub {
+	background: #C0C0C0;
+	padding: 5px 30px;
+}
+
+.conversation-sub .button {
+	margin: 0;
+}
