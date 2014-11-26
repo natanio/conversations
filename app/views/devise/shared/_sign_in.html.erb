@@ -10,10 +10,12 @@
 
 		  <% if devise_mapping.rememberable? -%>
 		  
-		    <div class="switch round"><%= f.check_box :remember_me %>
-		    <%= f.label :remember_me %></div>
+		    <div class="switch round">Remember me<br>
+		    	<%= f.check_box :remember_me %>
+		    	<%= f.label :remember_me %>
+		    </div>
 
 		  <% end -%>
 
-		  <div><%= f.submit "Sign in", class: "button success" %></div>
+		  <div><%= f.submit "Sign in", class: "button success expand" %></div>
 		<% end %>
