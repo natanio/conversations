@@ -1,5 +1,6 @@
 class LanguagesController < ApplicationController
   before_action :set_language, only: [:show, :edit, :update, :destroy]
+  before_action :check_admin, except: [:show, :index]
 
   # GET /languages
   # GET /languages.json
@@ -65,6 +66,12 @@ class LanguagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_language
       @language = Language.find(params[:id])
+    end
+
+    def check_admin
+      unless user_signed_in? && current_user.admin?
+        redirect_to root_path, alert: "Sorry, you can't do that."
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
