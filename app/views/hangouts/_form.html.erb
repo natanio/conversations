@@ -1,5 +1,5 @@
-<div class="row panel">
-  <div class="small-12 medium-12 large-12">
+
+  
     <%= form_for [@language, @hangout] do |f| %>
       <% if @hangout.errors.any? %>
         <div id="error_explanation">
@@ -47,8 +47,7 @@
         <%= f.check_box :private, class: "switch round" %>
       </div>
       <div class="actions">
-        <%= f.submit 'Start Conversation', class: "button success" %>
+        <%= f.submit 'Start Conversation', class: "button success" %><br><%= link_to 'Cancel', language_hangouts_path, class: "button alert small" %>
       </div>
     <% end %>
-  </div>
-</div>
+  

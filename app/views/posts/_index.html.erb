@@ -10,8 +10,10 @@
   
       <div class="top-pad fixed-to-bottom">
         <% unless user_signed_in? %>
-        <h6 class="subheader">To join this conversation, you need to 'Sign In.'</h6>
-          <%= link_to 'Sign In', new_user_session_path, class: "button" %>
+        <div class="text-center">
+          <h6 class="subheader" style="color: white;">To join this conversation, you need to 'Sign In.'</h6>
+            <%= link_to 'Sign In', new_user_session_path, class: "button success" %>
+          </div>
         <% else %>
           <%= render partial: "posts/new" %>
         <% end %>
