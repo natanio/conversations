@@ -9,8 +9,13 @@
       <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
     </div>
     
-    <div class="medium-12 large-10 large-centered columns">
-      <%= f.submit "Post", class: "button round secondary small" %>
-    </div>
+    
+        <div class="large-3 inline">
+          <a href="#" class="button tiny secondary round" data-reveal-id="tagModal">Show Tags</a>
+        </div>
+        <div class="large-3 inline">
+          <%= f.submit "Post", class: "button success small" %>
+        </div>
+   
   <% end %>
 </div>
