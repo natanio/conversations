@@ -1,8 +1,10 @@
-	<div class="conversation-title small-12 medium-12 large-12">
-		<h2><%= @hangout.name %></h2>
-	</div>
-	<div class="conversation-sub small-12 medium-12 large-12">
-		<%= link_to 'Back to ' + @language.name, language_hangouts_path(@language), class: "button tiny round" %>
+	<div class="row">
+		<div class="small-12 medium-12 large-12">
+			<ul class="breadcrumbs">
+	 			<li><%= link_to @language.name + " Conversations", language_hangouts_path %></li>
+	  			<li class="current"><a href="#"><%= @hangout.name %></a></li>
+			</ul>
+		</div>
 	</div>
   
 
