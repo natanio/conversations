@@ -20,8 +20,8 @@
 
       <div class="field">
         <%= f.label :private %><br>
-        Check if you'd like to make this chatroom private:
-        <%= f.check_box :private %>
+        Would you like to make this private?
+        <%= f.check_box :private, class: "switch round" %>
       </div>
       <div class="actions">
         <%= f.submit class: "button success" %>
