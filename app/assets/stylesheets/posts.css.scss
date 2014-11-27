@@ -16,6 +16,31 @@
   border-top: 1px solid #643876;
 }
 
+.fixed-to-bottom input[type="text"], .fixed-to-bottom textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  background-color: white;
+  font-family: inherit;
+  border: 1px solid #8e44ad;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.75);
+  display: block;
+  font-size: 0.875rem;
+  margin: 0 0 1rem 0;
+  padding: 0.5rem;
+  height: 2.3125rem;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
+}
+
+.fixed-to-bottom input[type="password"]:focus, .fixed-to-bottom textarea:focus {
+  border-color: #7B3A96;
+  box-shadow:0 0 5px #612779;
+}
+
 .glassy-bg{
   box-shadow: 0px 3px 8px -4px rgba(0,0,0,0.15);
   background: white;
@@ -35,4 +60,8 @@
 }
 .pb{
   padding-bottom: 10px;
+}
+
+.chat-buffer {
+  margin-bottom: 200px;
 }
