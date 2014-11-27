@@ -1,4 +1,5 @@
 <div class="row chat-buffer mt pt">
+  <a href="#" class="button tiny button round right" data-reveal-id="tagModal">Search chat by Tags</a>
 
     <div id="posts">
       <div class="posts-list">
@@ -16,9 +17,10 @@
         <% end %>
       </div>
   
-    <div class="tags-cloud glassy-bg">
+    <div id="tagModal" class="reveal-modal small" data-reveal>
       <h4>Tags Cloud</h4>
-      <% tag_cloud Tag.counts, %w{css1 css2 css3 css4} do |tag, css_class| %>
-      <%= link_to tag.name, language_hangout_tag_path(@language, @hangout, tag.name), class: css_class %>
-      <% end %>
+          <% tag_cloud Tag.counts, %w{css1 css2 css3 css4} do |tag, css_class| %>
+          <%= link_to tag.name, language_hangout_tag_path(@language, @hangout, tag.name), class: css_class %>
+          <% end %>
+      <a class="close-reveal-modal">&#215;</a>
     </div>
