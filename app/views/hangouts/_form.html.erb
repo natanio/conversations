@@ -14,13 +14,11 @@
       <% end %>
 
       <div class="field">
-        <%= f.label :name %><br>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, placeholder: "Title (What do you want to talk about?)" %>
       </div>
 
       <div class="field">
-        <%= f.label :description %><br>
-        <%= f.text_area :description %>
+        <%= f.text_area :description, placeholder: "Description" %>
       </div>
 
       <div class="row">
@@ -41,11 +39,13 @@
         </div>
       </div>
 
-      <div class="field">
-        <%= f.label :private %><br>
-        Would you like to make this private?
-        <%= f.check_box :private, class: "switch round" %>
-      </div>
+      <div class="switch round">Make this <span data-tooltip aria-haspopup="true" class="has-tip" title="This will not be listed publicly. Only people with the link can join.">private?</span><br>
+          <%= f.check_box :private %>
+          <%= f.label :private %>
+        </div>
+        <br>
+        <br>
+
       <div class="actions">
         <%= f.submit 'Start Conversation', class: "button success" %><br><%= link_to 'Cancel', language_hangouts_path, class: "button alert small" %>
       </div>
