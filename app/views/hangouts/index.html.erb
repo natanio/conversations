@@ -8,8 +8,10 @@
 <div class="row">
   <div id="pins" class="transitions-enabled small-12 medium-10 large-6">
     <% @hangouts.each do |hangout| %>
-      <div class="panel box">
-        <%= link_to hangout.name, language_hangout_path(@language, hangout) %>
+      <div class="panel box text-center">
+        <h6><%= hangout.name %></h6>
+        <br>
+        <%= link_to 'Join this chat', language_hangout_path(@language, hangout), class: "button success small round" %>
         <br>
         <% if user_signed_in? %>
         <%= %>
