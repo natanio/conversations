@@ -4,16 +4,19 @@
   <div class="row">
 
     <h1>Choose a Language</h1>
+    
     <div class="panel callout radius small-12 medium-12 large-12 columns">
-      <h3>What language do you want to practice?</h3>
+      <p class="lead">What language do you want to practice?</p>
     </div>
+    <%if user_signed_in? && current_user.admin? %><%= link_to 'New Language', new_language_path, class: "button small round success right" %><% end %>
   </div>
 
     <div class="row">
       <div id="pins" class="transitions-enabled small-12 medium-9 large-7">
         <% @languages.each do |language| %>
-        <div class="box panel">
-          <%= link_to language.name, language_hangouts_path(language) %>
+        <div class="box panel text-center">
+          <h6><%= language.name %></h6>
+          <%= link_to 'Practice', language_hangouts_path(language), class: "button small round success" %>
         </div>
         <% end %>
       
