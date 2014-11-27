@@ -1,6 +1,7 @@
 class HangoutsController < ApplicationController
   before_action :set_hangout, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :check_admin, only: [:edit, :update, :destroy]
   before_action :set_language
 
   # GET /hangouts
@@ -78,6 +79,12 @@ class HangoutsController < ApplicationController
 
     def set_language
       @language = Language.find(params[:language_id])
+    end
+
+    def check_admin
+      unless user_signed_in? && current_user.admin?
+        redirect_to root_path, alert: "Sorry, you can't do that."
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
