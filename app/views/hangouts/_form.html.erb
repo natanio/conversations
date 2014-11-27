@@ -1,5 +1,5 @@
 <div class="row panel">
-  <div class="small-12 medium-12 large-8">
+  <div class="small-12 medium-12 large-12">
     <%= form_for [@language, @hangout] do |f| %>
       <% if @hangout.errors.any? %>
         <div id="error_explanation">
@@ -19,12 +19,35 @@
       </div>
 
       <div class="field">
+        <%= f.label :description %><br>
+        <%= f.text_area :description %>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="field">
+          <%= f.label :start_time %><br>
+          <%= f.datetime_select :start_time, { ampm: true, start_year: Time.now.year, end_year: Time.now.year + 1, default: Time.now, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'}}, {class: "large-2 columns"} %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="field">
+          <%= f.label :end_time %><br>
+          <%= f.datetime_select :end_time, { ampm: true, start_year: Time.now.year, end_year: Time.now.year + 1, default: Time.now, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'}}, {class: "large-2 columns"} %>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
         <%= f.label :private %><br>
         Would you like to make this private?
         <%= f.check_box :private, class: "switch round" %>
       </div>
       <div class="actions">
-        <%= f.submit class: "button success" %>
+        <%= f.submit 'Start Conversation', class: "button success" %>
       </div>
     <% end %>
   </div>

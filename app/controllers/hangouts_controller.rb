@@ -89,6 +89,6 @@ class HangoutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hangout_params
-      params.require(:hangout).permit(:name, :language_id, :post_id, :private)
+      params.require(:hangout).permit(:description, :name, :language_id, :post_id, :private, :start_time, :end_time)
     end
 end
