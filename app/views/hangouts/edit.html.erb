@@ -1,6 +1,10 @@
-<h1>Editing hangout</h1>
+<div class="row">
+	<div class="large-12 columns">
+		<h1>Edit this conversation</h1>
 
-<%= render 'form' %>
+		<%= render 'form' %>
 
-<%= link_to 'Show', language_hangout_path(@language, @hangout) %> |
-<%= link_to 'Back', language_hangouts_path(@language) %>
+		<%= link_to 'Show', language_hangout_path(@language, @hangout) %> |
+		<%= link_to 'Back', language_hangouts_path(@language) %>
+	</div>
+</div>
