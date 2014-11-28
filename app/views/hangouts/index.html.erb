@@ -14,7 +14,7 @@
         <br>
         <%= link_to 'Join this chat', language_hangout_path(@language, hangout), class: "button success small round" %>
         <br>
-        <% if user_signed_in? && current_user.admin? %>
+        <% if ( user_signed_in? && hangout.user == current_user) || ( user_signed_in? && current_user.admin? ) %>
         <%= link_to 'Edit', edit_language_hangout_path(@language, hangout) %> | 
         <%= link_to 'Delete', language_hangout_path(@language, hangout), method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127050910) do
+ActiveRecord::Schema.define(version: 20141128015202) do
 
   create_table "hangouts", force: true do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20141127050910) do
     t.text     "description"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.integer  "user_id"
   end
 
   add_index "hangouts", ["language_id"], name: "index_hangouts_on_language_id"
