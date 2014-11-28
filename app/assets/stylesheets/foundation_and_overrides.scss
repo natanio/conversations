@@ -1361,7 +1361,7 @@ $crumb-font-transform: none;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #7A4590;
+$topbar-bg-color: rgba(199, 199, 199, 0.42);
 $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1389,8 +1389,8 @@ $topbar-dropdown-bg: #8B4EA5;
 // $topbar-link-weight: $font-weight-normal;
 // $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-$topbar-link-bg: $topbar-bg;
-$topbar-link-bg-color-hover: $topbar-bg;
+$topbar-link-bg: #9b59b6;
+$topbar-link-bg-color-hover: #9b59b6;
 $topbar-link-bg-hover: #6C3D80;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);

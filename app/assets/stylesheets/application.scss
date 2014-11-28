@@ -16,16 +16,28 @@
  */
 
 .hero {
-	background: #9b59b6;
-	height: auto;
+	background: url('https://dl.dropboxusercontent.com/s/7bq0697rqtarlag/city-bike-small.jpg') no-repeat center center fixed;
 	text-align: center;
-	padding: 4em;
-	color: white;
-	border-bottom: 1px solid #794290;
+	color: #3F3F35;
+	min-height: 100%;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+ 	-o-background-size: cover;
+  	background-size: cover;
+  	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://dl.dropboxusercontent.com/s/7bq0697rqtarlag/city-bike-small.jpg', sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://dl.dropboxusercontent.com/s/7bq0697rqtarlag/city-bike-small.jpg', sizingMethod='scale')";
 }
 
 .hero h1 {
-	color: white;
+	color: #3F3F35;
+}
+
+.hero p.lead {
+	font-size: 24px;
+}
+
+.focus-area {
+	padding: 4em;
 }
 
 .hero input[type="password"], .hero input[type="email"] {
