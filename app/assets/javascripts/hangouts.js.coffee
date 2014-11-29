@@ -7,3 +7,5 @@ $ ->
     $('#pins').masonry
       itemSelector: '.box'
       isFitWidth: true
+
+jQuery('#datetimepicker').datetimepicker()
