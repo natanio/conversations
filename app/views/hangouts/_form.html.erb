@@ -39,8 +39,6 @@
         </div>
       </div>
 
-      <input id="datetimepicker" type="text" >
-
       <div class="switch round">Make this <span data-tooltip aria-haspopup="true" class="has-tip" title="This will not be listed publicly. Only people with the link can join.">private?</span><br>
           <%= f.check_box :private %>
           <%= f.label :private %>
@@ -52,6 +50,4 @@
         <%= f.submit 'Start Conversation', class: "button success" %><br><%= link_to 'Cancel', language_hangouts_path, class: "button alert small" %>
       </div>
     <% end %>
-  <script>
-  jQuery("#datetimepicker").datetimepicker();
-  </script>
+  

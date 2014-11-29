@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   private
     def set_username
-      self.username = "user-#{ SecureRandom.hex(10) }"
+      a = ['achlis', 'unicorn', 'bodach', 'camahueto', 'centaur', 'diwata', 'drakon', 'reichsadler', 'rompo', 'likho', 'lynx', 'sphinx', 'squonk' ]
+      self.username = "#{a.sample}-#{ SecureRandom.hex(6) }"
     end
 end
