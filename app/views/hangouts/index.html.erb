@@ -2,7 +2,9 @@
   <div class="small-12 medium-12 large-12">
     <h1>Join a Conversation About <%= @language.name.capitalize %></h1>
 
-      <%= link_to 'New Conversation', new_language_hangout_path(@language, @hangout), class: "button" %>
+      <%= link_to new_language_hangout_path(@language, @hangout), class: "button" do %>
+        <i class="fi-plus"></i> New Conversation
+      <% end %>
   </div>
 </div>
 <div class="row">
@@ -20,7 +22,7 @@
                   <p><%= hangout.start_time.strftime("%b %e, '%y") %></p>
                 </div>
                 <div class="large-4 columns inline">
-                  <p><%= chat_length(hangout.start_time, hangout.end_time) %></p>
+                  <p><i class="fi-clock"></i> <%= chat_length(hangout.start_time, hangout.end_time) %></p>
                 </div>
               </div>
             </div>
@@ -37,7 +39,9 @@
         <div class="chat-buttons">
           <ul>
             <li class="chat"><%= link_to 'Join', language_hangout_path(@language, hangout), class: "chat-button-big" %></li>
-            <li class="chat"><%= link_to '23', language_hangout_path(@language, hangout), class: "chat-button" %></li>
+            <li class="chat"></i><%= link_to language_hangout_path(@language, hangout), class: "chat-button" do %>
+              <i class="fi-torsos"></i> 23
+              <% end %></li>
           </ul>
           
         </div>
