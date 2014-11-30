@@ -8,16 +8,39 @@
 <div class="row">
   <div id="pins" class="transitions-enabled small-12 medium-10 large-6">
     <% @hangouts.each do |hangout| %>
-      <div class="panel box text-center">
-        <h5 style="font-weight: bold"><%= hangout.name %></h5>
-        <p><%= hangout.description %></p>
-        <br>
-        <%= link_to 'Join this chat', language_hangout_path(@language, hangout), class: "button success small round" %>
-        <br>
-        <% if ( user_signed_in? && hangout.user == current_user) || ( user_signed_in? && current_user.admin? ) %>
-        <%= link_to 'Edit', edit_language_hangout_path(@language, hangout) %> | 
-        <%= link_to 'Delete', language_hangout_path(@language, hangout), method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
+      <div class="chat-panel box text-center">
+        <div class="chat-title">
+          <h5><%= hangout.name %></h5>
+        </div>
+        <div class="chat-time">
+          <div class="row">
+            <div class="large-12 columns">
+              <div class="row">
+                <div class="large-6 columns inline">
+                  <p><%= hangout.start_time.strftime("%b %e, '%y") %></p>
+                </div>
+                <div class="large-4 columns inline">
+                  <p><%= chat_length(hangout.start_time, hangout.end_time) %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-description">
+          <p><%= hangout.description %></p>
+          <br>
+          <% if ( user_signed_in? && hangout.user == current_user) || ( user_signed_in? && current_user.admin? ) %>
+          <%= link_to 'Edit', edit_language_hangout_path(@language, hangout) %> | 
+          <%= link_to 'Delete', language_hangout_path(@language, hangout), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </div>
+        <div class="chat-buttons">
+          <ul>
+            <li class="chat"><%= link_to 'Join', language_hangout_path(@language, hangout), class: "chat-button-big" %></li>
+            <li class="chat"><%= link_to '23', language_hangout_path(@language, hangout), class: "chat-button" %></li>
+          </ul>
+          
+        </div>
       </div>
      
     <% end %>

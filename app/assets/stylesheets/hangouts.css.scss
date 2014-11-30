@@ -15,3 +15,90 @@
 .conversation-sub .button {
 	margin: 0;
 }
+
+.chat-panel {
+	background: white;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	box-shadow: 0 0 10px #D2D2D2;
+	-webkit-box-shadow: 0 0 10px #D2D2D2;
+	-moz-box-shadow: 0 0 10px #D2D2D2;
+}
+
+.chat-panel h5 {
+	color: white;
+	font-family: 'Arvo', serif;
+}
+
+.chat-panel ul {
+	margin: 0;
+}
+
+.chat-title {
+background: rgba(155, 89, 182, 0.75);
+padding: 0.5em 2em;
+border-bottom: 1px solid #9A68AE;
+border-top-right-radius: 10px;
+border-top-left-radius: 10px;
+}
+
+.chat-time {
+padding: 0.35em;
+background: #9B7AA8;
+color: #FFF;
+border-bottom: 1px solid #9372A0;
+}
+
+.chat-time p {
+	margin: 0;
+	font-size: 14px;
+	color: #54385F;
+	text-shadow: 0px 1px #B589C7;
+}
+
+.chat-description {
+padding: 2em 1em 0 1em;
+}
+
+.chat-description p {
+text-align: left;
+color: #666;
+}
+
+a.chat-button-big {
+float: left;
+padding: 1em 5em;
+text-align: center;
+background: #34495E;
+width: 64%;
+color: #FFF;
+border-bottom-left-radius: 10px;
+border-right: 1px solid #2B3F52;
+}
+
+a.chat-button-big:hover {
+background: #2ECC71;
+border-right: none;
+}
+
+a.chat-button {
+padding: 1em 2em;
+float: left;
+background: #34495E;
+width: 36%;
+color: #FFF;
+border-bottom-right-radius: 10px;
+border-left: 1px solid #4E6174;
+}
+
+a.chat-button:hover {
+background: #2C3E50;
+}
+
+li.chat {
+display: inline;
+padding: 0;
+margin: 0;
+}
