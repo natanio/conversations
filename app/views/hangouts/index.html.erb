@@ -18,10 +18,10 @@
           <div class="row">
             <div class="large-12 columns">
               <div class="row">
-                <div class="large-6 columns inline">
+                <div class="large-6 columns">
                   <p><%= hangout.start_time.strftime("%b %e, '%y - %I:%M%P") %></p>
                 </div>
-                <div class="large-4 columns inline">
+                <div class="large-4 columns">
                   <p><i class="fi-clock"></i> <%= chat_length(hangout.start_time, hangout.end_time) %></p>
                 </div>
               </div>
@@ -30,10 +30,17 @@
         </div>
         <div class="chat-description">
           <p><%= hangout.description %></p>
+          <div class="host">
+            <p><%= hangout.user.username %></p>
+          </div>
           <br>
           <% if ( user_signed_in? && hangout.user == current_user) || ( user_signed_in? && current_user.admin? ) %>
-          <%= link_to 'Edit', edit_language_hangout_path(@language, hangout) %> | 
-          <%= link_to 'Delete', language_hangout_path(@language, hangout), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to edit_language_hangout_path(@language, hangout), title: "Edit" do %>
+          <i class="fi-pencil"></i>
+          <% end %>
+          <%= link_to language_hangout_path(@language, hangout), title: "Delete", method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fi-x"></i>
+          <% end %>
           <% end %>
         </div>
         <div class="chat-buttons">
