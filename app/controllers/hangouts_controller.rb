@@ -53,7 +53,7 @@ class HangoutsController < ApplicationController
   def update
     respond_to do |format|
       if @hangout.update(hangout_params)
-        format.html { redirect_to @hangout, notice: 'Hangout was successfully updated.' }
+        format.html { redirect_to language_hangout_path(@language, @hangout), notice: 'Hangout was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
