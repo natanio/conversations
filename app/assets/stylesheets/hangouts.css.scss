@@ -37,25 +37,27 @@
 }
 
 .chat-title {
-background: rgba(155, 89, 182, 0.75);
+background: #9B59B6;
 padding: 0.5em 2em;
-border-bottom: 1px solid #9A68AE;
+border-bottom: 1px solid #8D50A6;
 border-top-right-radius: 10px;
 border-top-left-radius: 10px;
 }
 
 .chat-time {
 padding: 0.35em;
-background: #9B7AA8;
+background: #ECECEC;
 color: #FFF;
-border-bottom: 1px solid #9372A0;
+border-bottom: 1px solid #E2E2E2;
 }
 
 .chat-time p {
 	margin: 0;
 	font-size: 14px;
-	color: #54385F;
-	text-shadow: 0px 1px #B589C7;
+	color: #5A5A5A;
+	text-shadow: 0px 1px #F5F5F5;
+	-webkit-text-shadow: 0px 1px #F5F5F5;
+	-moz-text-shadow: 0px 1px #F5F5F5;
 }
 
 .chat-description {
@@ -76,11 +78,17 @@ width: 64%;
 color: #FFF;
 border-bottom-left-radius: 10px;
 border-right: 1px solid #2B3F52;
+-o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  /* ...and now for the proper property */
+  transition:.5s;
 }
 
 a.chat-button-big:hover {
 background: #2ECC71;
-border-right: none;
+border-right: #2ECC71;
 }
 
 a.chat-button {
@@ -91,6 +99,12 @@ width: 36%;
 color: #FFF;
 border-bottom-right-radius: 10px;
 border-left: 1px solid #4E6174;
+-o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  /* ...and now for the proper property */
+  transition:.5s;
 }
 
 a.chat-button:hover {
