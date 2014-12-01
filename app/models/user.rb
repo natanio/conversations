@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
 
   has_many :hangouts
   has_many :posts
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.oldbookillustrations.com/gallery/characters/louis-xiv.jpg"
-
+  has_attached_file :avatar, :s3_host_name => "s3-us-west-2.amazonaws.com", :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://www.oldbookillustrations.com/gallery/characters/louis-xiv.jpg"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/ 
   private
     def set_username
       a = ['achlis', 'unicorn', 'bodach', 'camahueto', 'centaur', 'diwata', 'drakon', 'reichsadler', 'rompo', 'likho', 'lynx', 'sphinx', 'squonk' ]
