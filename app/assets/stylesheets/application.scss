@@ -34,6 +34,16 @@
 
 .hero h1 {
 	color: #3F3F35;
+	font-weight: 700;
+	text-shadow: 0 0px 7px rgb(190, 190, 190);
+	-webkit-text-shadow: 0 0px 7px rgb(190, 190, 190);
+	-o-text-shadow: 0 0px 7px rgb(190, 190, 190);
+	-moz-text-shadow: 0 0px 7px rgb(190, 190, 190);
+}
+
+.hero span.highlight {
+color: rgb(58, 58, 48);
+font-weight: 700;
 }
 
 .hero p.lead {
