@@ -10,7 +10,7 @@
 <div class="row">
   <div id="pins" class="transitions-enabled small-12 medium-10 large-6">
     <% @hangouts.each do |hangout| %>
-    <% unless hangout.private %>
+    <% unless hangout.private || hangout.end_time.to_s <= Time.now.to_s %>
       <div class="chat-panel box text-center">
         <div class="chat-title">
           <h5><%= hangout.name %></h5>
