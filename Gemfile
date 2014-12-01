@@ -31,6 +31,7 @@ gem 'thin'
 gem 'masonry-rails'
 gem 'foundation-icons-sass-rails'
 gem 'paperclip', '~> 3.0'
+gem 'aws-sdk', '~> 1.20.0'
 
 group :development, :test do
      gem 'sqlite3'
