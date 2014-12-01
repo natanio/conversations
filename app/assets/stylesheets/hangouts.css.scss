@@ -71,6 +71,27 @@ text-align: left;
 color: #666;
 }
 
+.host p {
+	font-size: 0.9em;
+	font-weight: bold;
+	font-family: "Quicksand", sans-serif;
+	letter-spacing: -1px;
+	text-align: center;
+	margin: 0;
+}
+
+.host, span.left-margin {
+margin-left: 5px;
+}
+
+.host a {
+	color: #A6A6A6;
+}
+
+.host a:hover {
+color: #909090;
+}
+
 a.chat-button-big {
 float: left;
 padding: 1em 5em;

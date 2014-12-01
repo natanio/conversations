@@ -31,17 +31,19 @@
         <div class="chat-description">
           <p><%= hangout.description %></p>
           <div class="host">
-            <p><%= hangout.user.username %></p>
+            <p><%= hangout.user.username %>
+            <% if ( user_signed_in? && hangout.user == current_user) || ( user_signed_in? && current_user.admin? ) %>
+            <%= link_to edit_language_hangout_path(@language, hangout), title: "Edit" do %>
+              <span class="left-margin"><i class="fi-pencil"></i></span>
+            <% end %>
+            <%= link_to language_hangout_path(@language, hangout), title: "Delete", method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="left-margin"><i class="fi-x"></i></span>
+              </p>
+            <% end %>
+          <% end %>
           </div>
           <br>
-          <% if ( user_signed_in? && hangout.user == current_user) || ( user_signed_in? && current_user.admin? ) %>
-          <%= link_to edit_language_hangout_path(@language, hangout), title: "Edit" do %>
-          <i class="fi-pencil"></i>
-          <% end %>
-          <%= link_to language_hangout_path(@language, hangout), title: "Delete", method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <i class="fi-x"></i>
-          <% end %>
-          <% end %>
+          
         </div>
         <div class="chat-buttons">
           <ul>
