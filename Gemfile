@@ -30,6 +30,7 @@ gem 'faye-rails', '~> 2.0'
 gem 'thin'
 gem 'masonry-rails'
 gem 'foundation-icons-sass-rails'
+gem 'paperclip', '~> 3.0'
 
 group :development, :test do
      gem 'sqlite3'
