@@ -7,7 +7,7 @@ class HangoutsController < ApplicationController
   # GET /hangouts
   # GET /hangouts.json
   def index
-    @hangouts = Hangout.where('language_id == ? AND end_time > ?', @language.id, Time.now.to_s)
+    @hangouts = Hangout.where('language_id == ? AND end_time > ?', @language.id, Time.now.to_s).order( 'created_at DESC' )
   end
 
   # GET /hangouts/1
