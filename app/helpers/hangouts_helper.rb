@@ -4,15 +4,11 @@ module HangoutsHelper
 	end
 
 	def is_live(start, finish)
-		if (start >= Time.now) && (finish <= Time.now )
-			return true
-		else
-			return false
-		end
+		start.to_s <= Time.now.to_s
 	end
 
-	def is_planned(start, finish)
-		if start < Time.now
+	def is_planned(start)
+		if start.to_s < Time.now.to_s
 			return true
 		else
 			return false
