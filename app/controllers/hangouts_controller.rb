@@ -7,7 +7,7 @@ class HangoutsController < ApplicationController
   # GET /hangouts
   # GET /hangouts.json
   def index
-    @hangouts = Hangout.where(language_id: @language.id)
+    @hangouts = Hangout.where('language_id == ? AND end_time > ?', @language.id, Time.now.to_s)
   end
 
   # GET /hangouts/1
@@ -87,6 +87,7 @@ class HangoutsController < ApplicationController
         redirect_to root_path, alert: "Sorry, you can't do that."
       end
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hangout_params
