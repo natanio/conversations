@@ -1,11 +1,11 @@
 <% unless user_signed_in? %>
 <%= render 'layouts/welcome' %>
 <% else %>
-  <div class="row">
+  <div class="small-12 medium-12 large-12 columns">
 
     <h1>Choose a Language</h1>
     
-    <div class="panel callout radius small-12 medium-12 large-12 columns">
+    <div class="panel callout radius">
       <p class="lead">What language do you want to practice?</p>
     </div>
     <%if user_signed_in? && current_user.admin? %><%= link_to 'New Language', new_language_path, class: "button small round success right" %><% end %>
