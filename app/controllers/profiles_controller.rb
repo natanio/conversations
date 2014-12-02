@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
 	before_action :set_profile, only: [:show]
+    before_action :set_rsvp, only: [:show]
 	before_action :set_user, only: [:show]
 
 	def show
@@ -14,5 +15,9 @@ class ProfilesController < ApplicationController
 
     def set_profile
       @profile = Profile.find(params[:profile_id]) rescue Profile.find(params[:id])
+    end
+
+    def set_rsvp
+        @rsvp = Rsvp.where(user_id: @profile.user)
     end
 end

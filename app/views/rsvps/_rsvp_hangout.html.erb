@@ -2,6 +2,8 @@
 	<%- unless current_user.rsvped_hangouts.exists?(id: hangout.id) -%>
 	<%= link_to 'RSVP', rsvps_path(hangout_id: hangout), remote: true, method: :post, :id => 'rsvp-submit' + hangout.id.to_s, class: 'chat-button-big' %>
 	<%- else -%>
-	<%= link_to 'RSVPed', rsvp_path(hangout), remote: true, method: :delete, class: 'chat-button-big' %>
+	<%= link_to rsvp_path(hangout), remote: true, method: :delete, class: 'chat-button-big-inverse' do %>
+		<i class="fi-check"></i> 
+		<% end %>
 	<%- end -%>
 </div>

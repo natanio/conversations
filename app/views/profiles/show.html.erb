@@ -5,9 +5,18 @@
 <%= link_to 'Your Settings', edit_user_registration_path %>
 <% end %>
 
+<%= @rsvp.hangout.language.id %>
+
 <br>
 
-
-<% @user_rsvps.each do |rsvp| %>
-<%= link_to language_hangout_path(rsvp.rsvped_id.language, rsvp.rsvped_id) %>
-<% end %>
+<% @languages = Language.all %>
+<% i = 1 %>
+<% while i <= @languages.length do %>
+	<% @language = Language.find(i) %>
+		<% @user_rsvps.each do |rsvp| %>
+			<% if Hangout.where(language_id: i) && Rsvp.where(rsvped_id: rsvp).exists? %>
+				<%= link_to 'RSVPed', language_hangout_path(i, rsvp.rsvped_id) %>
+			<% end %>
+		<% end %>
+		<% i += 1 %>
+	<% end %>
