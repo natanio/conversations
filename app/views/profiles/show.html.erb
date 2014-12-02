@@ -6,4 +6,8 @@
 <% end %>
 
 <br>
-<%= link_to current_user.profile %>
+
+
+<% @user_rsvps.each do |rsvp| %>
+<%= link_to language_hangout_path(rsvp.rsvped_id.language, rsvp.rsvped_id) %>
+<% end %>

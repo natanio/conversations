@@ -52,7 +52,9 @@
             <% if is_live(hangout.start_time, hangout.end_time) %>
             <li class="chat"><%= link_to 'Join', language_hangout_path(@language, hangout), class: "chat-button-big" %></li>
             <% else %>
-              <li class="chat"><%= link_to 'RSVP', language_hangout_path(@language, hangout), class: "chat-button-big" %></li>
+              <li class="chat"><div id="<%= 'rsvp-submit' + hangout.id.to_s %>">
+                <%= render partial: 'rsvps/rsvp_hangout', locals: { language: @language, hangout: hangout } %>
+              </div></li>
             <% end %>
             <li class="chat"></i><%= link_to language_hangout_path(@language, hangout), class: "chat-button" do %>
               <i class="fi-torsos"></i> 23

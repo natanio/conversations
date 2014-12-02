@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141202011052) do
+ActiveRecord::Schema.define(version: 20141202063723) do
 
   create_table "hangouts", force: true do |t|
     t.string   "name"
@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(version: 20141202011052) do
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
+
+  create_table "rsvps", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "rsvped_id"
+    t.string   "rsvped_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rsvps", ["rsvped_id", "rsvped_type"], name: "index_rsvps_on_rsvped_id_and_rsvped_type"
+  add_index "rsvps", ["user_id"], name: "index_rsvps_on_user_id"
 
   create_table "taggings", force: true do |t|
     t.integer  "post_id"

@@ -1,0 +1,1 @@
+$('#rsvp-submit<%= @hangout.id.to_s %>').html('<%= escape_javascript( render partial: 'rsvps/rsvp_hangout', locals: { hangout: @hangout }  ) %>');
