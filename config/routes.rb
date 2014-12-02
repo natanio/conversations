@@ -2,6 +2,7 @@ Chatroom::Application.routes.draw do
   get "about" => "pages#about", as: "about"
   get "contact" => "pages#contact", as: "contact"
   devise_for :users
+  resources :profiles, only: [:show]
   resources :languages do
     resources :hangouts do
       resources :posts, only: [:create]
