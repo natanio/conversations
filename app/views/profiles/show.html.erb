@@ -1,7 +1,7 @@
 <h1>Here's your profile</h1>
 <h2><%= @profile.user.username %></h2>
 <%= link_to 'Profile', @profile %>
-<% if user_signed_in? && current_user.id == @profile.user_id %>
+<% if user_signed_in? && current_user == @profile.user %>
 <%= link_to 'Your Settings', edit_user_registration_path %>
 <% end %>
 
