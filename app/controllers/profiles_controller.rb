@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
 
 	def show
 		@user_rsvps = Rsvp.where(user_id: @user.id)
-        @user_hangouts = Hangout.where(user_id: @user.id).order( 'start_time ASC' )
+        @user_hangouts = Hangout.where(user_id: @user.id)
 	end
 
 	private

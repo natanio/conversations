@@ -121,6 +121,13 @@ a.button, a.button:visited {
   width: 100%;
 }
 
+.avatar-upload {
+	padding: 1em;
+}
+
 .avatar-upload img {
 	width: 150px;
+	border-radius: 50%;
+	border: 6px solid #dadada;
+	margin-bottom: 2em;
 }
