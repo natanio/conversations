@@ -1,9 +1,14 @@
-<h1>Here's your profile</h1>
-<h2><%= @profile.user.username %></h2>
-<%= link_to 'Profile', @profile %>
-<% if user_signed_in? && current_user == @profile.user %>
-<%= link_to 'Your Settings', edit_user_registration_path %>
-<% end %>
+<div class="text-center profile-head">
+	<%= image_tag(@user.avatar.url(:medium)) %>
+	<h2><%= @profile.user.username %></h2>
+	<% if user_signed_in? && current_user == @profile.user %>
+	<%= link_to edit_user_registration_path do %>
+	<i class="fi-widget"></i> Settings
+	<% end %>
+	<% else %>
+	<%= link_to 'Follow', "#", class: "button small round" %>
+	<% end %>
+</div>
 
 <dl class="tabs" data-tab>
   <dd class="active"><a href="#panel1">My Scheduled Chats</a></dd>

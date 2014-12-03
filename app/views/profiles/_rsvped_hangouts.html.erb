@@ -19,8 +19,8 @@
         <div class="chat-description">
           <p><%= hangout.description %></p>
           <div class="host">
-            <%= image_tag hangout.user.avatar.url(:thumb) %>
-            <p><%= hangout.user.username %>
+            <%= link_to( image_tag(hangout.user.avatar.url(:thumb)), profile_path(hangout.user)) %>
+            <p><%= link_to hangout.user.username, profile_path(hangout.user) %></p>
             <% if ( user_signed_in? && hangout.user == current_user) || ( user_signed_in? && current_user.admin? ) %>
             <%= link_to edit_language_hangout_path(language, hangout), title: "Edit" do %>
               <span class="left-margin"><i class="fi-pencil"></i></span>

@@ -1,3 +1,14 @@
 // Place all the styles related to the Profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.profile-head {
+	padding: 3em 3em 1em 3em;
+}
+
+.profile-head img {
+	border-radius: 50%;
+	border: 6px solid #DADADA;
+	max-width: 150px;
+}
