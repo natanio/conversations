@@ -13,7 +13,7 @@ private
 	def check_signed_in
 		unless user_signed_in?
 		else
-			redirect_to languages_path
+			redirect_to profile_path(current_user)
 		end
 	end
 end
