@@ -1,7 +1,7 @@
 <div class="text-center profile-head">
 	<%= image_tag(@user.avatar.url(:medium)) %>
 	<h2><%= @profile.user.username %></h2>
-	<p>Following <%= @user.follow_count %>, Followers <%= @user.followers_count %></p>
+	<p>Following <%= @user.following_by_type_count('User') %>, Followers <%= @user.followers_by_type_count('User') %></p>
 	<% if user_signed_in? && current_user == @profile.user %>
 	<%= link_to edit_user_registration_path do %>
 	<i class="fi-widget"></i> Settings
