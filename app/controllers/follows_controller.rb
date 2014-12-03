@@ -1,5 +1,6 @@
 class FollowsController < ApplicationController
 	before_action :set_profile
+
 	def create
 		current_user.follow(@profile.user)
 		redirect_to :back
@@ -15,6 +16,6 @@ class FollowsController < ApplicationController
 	private
 
 	def set_profile
-		@profile = Profile.find(params[:id]) rescue Profile.find(params[:id])
+		@profile = Profile.find(params[:id])
 	end
 end

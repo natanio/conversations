@@ -12,11 +12,19 @@
   </div>
 
     <div class="row">
-      <div id="pins" class="transitions-enabled small-12 medium-9 large-7">
+      <div id="pins" class="transitions-enabled small-12 medium-12 large-12">
         <% @languages.each do |language| %>
         <div class="box panel text-center">
-          <h6><%= language.name %></h6>
-          <%= link_to 'Practice', language_hangouts_path(language), class: "button small round success" %>
+          <% unless current_user.following?(language) %>
+            <%= link_to 'Follow', languagefollows_path(id: language), method: :post, id:"follow-submit", class: "button small round tiny" %>
+          <% else %>
+            <%= link_to 'Unfollow', languagefollow_path(id: language), method: :delete, class: "button small round secondary tiny" %>
+          <% end %>
+
+          <h3><%= language.name %></h3>
+          <div class="top-margin">
+            <%= link_to 'Practice', language_hangouts_path(language), class: "button small round success" %>
+          </div>
         </div>
         <% end %>
       
