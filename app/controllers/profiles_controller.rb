@@ -1,10 +1,11 @@
 class ProfilesController < ApplicationController
 	before_action :set_profile, only: [:show]
-    before_action :set_rsvp, only: [:show]
+    before_action :set_rsvps, only: [:show]
 	before_action :set_user, only: [:show]
 
 	def show
 		@user_rsvps = Rsvp.where(user_id: @user.id)
+        @user_hangouts = Hangout.where(user_id: @user.id)
 	end
 
 	private
@@ -17,7 +18,7 @@ class ProfilesController < ApplicationController
       @profile = Profile.find(params[:profile_id]) rescue Profile.find(params[:id])
     end
 
-    def set_rsvp
-        @rsvp = Rsvp.where(user_id: @profile.user)
+    def set_rsvps
+        @rsvps = Rsvp.where(user_id: @profile.user)
     end
 end

@@ -5,18 +5,26 @@
 <%= link_to 'Your Settings', edit_user_registration_path %>
 <% end %>
 
-<%= @rsvp.hangout.language.id %>
-
-<br>
-
-<% @languages = Language.all %>
-<% i = 1 %>
-<% while i <= @languages.length do %>
-	<% @language = Language.find(i) %>
-		<% @user_rsvps.each do |rsvp| %>
-			<% if Hangout.where(language_id: i) && Rsvp.where(rsvped_id: rsvp).exists? %>
-				<%= link_to 'RSVPed', language_hangout_path(i, rsvp.rsvped_id) %>
-			<% end %>
+<dl class="tabs" data-tab>
+  <dd class="active"><a href="#panel1">My Scheduled Chats</a></dd>
+  <dd><a href="#panel2">My Chats</a></dd>
+</dl>
+<div class="tabs-content">
+  <div class="content active" id="panel1">
+    <div class="row">
+	  <div id="pins" class="transitions-enabled small-12 medium-10 large-6">
+		<% @rsvps.each do |rsvp| %>
+			<%= render partial: 'profiles/rsvped_hangouts', locals: {language: rsvp.rsvped.language.id, hangout: rsvp.rsvped } %>
 		<% end %>
-		<% i += 1 %>
-	<% end %>
+		</div>
+	</div>
+  </div>
+  <div class="content" id="panel2">
+    <div class="row">
+	  <div id="pins" class="transitions-enabled small-12 medium-10 large-6">
+		<% @user_hangouts.each do |hangout| %>
+			<%= render partial: 'profiles/rsvped_hangouts', locals: {language: hangout.language.id, hangout: hangout } %>
+		<% end %>
+		</div>
+	</div>
+</div>
