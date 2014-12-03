@@ -11,6 +11,7 @@ Chatroom::Application.routes.draw do
   end
 
   resources :rsvps, only: [:create, :destroy]
+  resources :follows, only: [:create, :destroy]
 
   root 'pages#home'
 

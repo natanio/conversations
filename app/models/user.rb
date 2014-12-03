@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
   has_one :profile
   before_create :build_profile
 
+  # Use acts_as_follow gem for following relations
+  acts_as_follower
+  acts_as_follower
+
   has_many :hangouts
   has_many :rsvps
   has_many :rsvped_hangouts, through: :rsvps, source: :rsvped, source_type: 'Hangout'

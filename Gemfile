@@ -33,6 +33,7 @@ gem 'foundation-icons-sass-rails'
 gem 'paperclip', '~> 3.0'
 gem 'aws-sdk', '~> 1.20.0'
 gem 'browser-timezone-rails'
+gem 'acts_as_follower'
 
 group :development, :test do
      gem 'sqlite3'

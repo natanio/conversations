@@ -6,7 +6,11 @@
 	<i class="fi-widget"></i> Settings
 	<% end %>
 	<% else %>
-	<%= link_to 'Follow', "#", class: "button small round" %>
+		<% unless current_user.following?(@profile.user) %>
+			<%= link_to 'Follow', follows_path(id: @profile), method: :post, id:"follow-submit", class: "button small round tiny" %>
+		<% else %>
+			<%= link_to 'Unfollow', follow_path(id: @profile), method: :delete, class: 'button small round secondary tiny' %>
+		<% end %>
 	<% end %>
 </div>
 
