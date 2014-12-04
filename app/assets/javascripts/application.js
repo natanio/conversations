@@ -14,12 +14,12 @@
 //= require jquery_ujs
 //= require jquery.datetimepicker
 //= require foundation
+//= require analytics
 //= require jquery.turbolinks
 //= require turbolinks
 //= require faye
 //= require posts
 //= require masonry/jquery.masonry
-//= require analytics
 //= require browser_timezone_rails/application.js
 //= require_tree .
 
