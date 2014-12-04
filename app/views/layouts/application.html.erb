@@ -6,9 +6,9 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "fluentli conversations - Chat for Language Learners" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
     <script src="//load.sumome.com/" data-sumo-site-id="48cd5e959444a9481e1023e2fd6737309d68b6eec30f06bf3d929b8808b54e96" async></script>
   </head>
