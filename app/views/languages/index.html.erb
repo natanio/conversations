@@ -1,14 +1,14 @@
 <% unless user_signed_in? %>
 <%= render 'layouts/welcome' %>
 <% else %>
-  <div class="small-12 medium-12 large-12 columns">
+  <div class="small-12 medium-12 large-12 columns text-center">
 
     <h1>Choose a Language</h1>
     
     <div class="panel callout radius">
       <p class="lead">What language do you want to practice?</p>
     </div>
-    <%if user_signed_in? && current_user.admin? %><%= link_to 'New Language', new_language_path, class: "button small round success right" %><% end %>
+    <%if user_signed_in? && current_user.admin? %><%= link_to 'New Language', new_language_path, class: "button small round success" %><% end %>
   </div>
 
     <div class="row">
@@ -18,7 +18,7 @@
           <% unless current_user.following?(language) %>
             <%= link_to 'Follow', languagefollows_path(id: language), method: :post, id:"follow-submit", class: "button small round tiny" %>
           <% else %>
-            <%= link_to 'Unfollow', languagefollow_path(id: language), method: :delete, class: "button small round secondary tiny" %>
+            <%= link_to 'Following', languagefollow_path(id: language), method: :delete, class: "button small round secondary tiny" %>
           <% end %>
 
           <h3><%= language.name %></h3>
