@@ -1,5 +1,6 @@
 class RsvpsController < ApplicationController
 	before_action :set_hangout
+	before_action :authenticate_user!
 
 	def create
 		Rsvp.create(rsvped: @hangout, user: current_user)

@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
 	before_action :set_profile, only: [:show]
     before_action :set_rsvps, only: [:show]
 	before_action :set_user, only: [:show]
+    before_action :authenticate_user!
 
 	def show
 		@user_rsvps = Rsvp.where(user_id: @user.id)

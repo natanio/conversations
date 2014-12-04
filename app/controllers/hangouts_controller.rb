@@ -1,6 +1,6 @@
 class HangoutsController < ApplicationController
   before_action :set_hangout, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!
   before_action :check_access, only: [:edit, :update, :destroy]
   before_action :set_language
 
