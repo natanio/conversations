@@ -12,3 +12,17 @@
 	border: 6px solid #DADADA;
 	max-width: 150px;
 }
+
+.followers img {
+	max-width: 100px;
+	max-height: 100px;
+	border-radius: 50%;
+}
+
+.followers table {
+	border: none;
+}
+
+.followers td .button {
+	top: 9px;
+}

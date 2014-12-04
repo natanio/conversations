@@ -6,6 +6,9 @@ class ProfilesController < ApplicationController
 	def show
 		@user_rsvps = Rsvp.where(user_id: @user.id)
         @user_hangouts = Hangout.where(user_id: @user.id)
+
+        @followers = @user.followers_by_type('User')
+        @following = @user.following_user
 	end
 
 	private

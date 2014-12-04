@@ -1,0 +1,22 @@
+<div class="followers text-center row">
+	<div class="large-12">
+	<table>
+		<tbody>
+			<% @following.each do |follower| %>
+				<tr>
+					<td><%= image_tag(follower.avatar(:thumb)) %></td>
+					<td></td>
+					<td><%= link_to follower.username, profile_path(follower) %></td>
+					<td>
+						<% unless current_user.following?(follower) %>
+						<%= link_to 'Follow', follows_path(id: follower.profile), method: :post, id:"follow-submit", class: "button small round tiny" %>
+						<% else %>
+						<%= link_to 'Unfollow', follow_path(id: follower.profile), method: :delete, class: 'button small round alert tiny' %>
+						<% end %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+</div>
