@@ -10,4 +10,8 @@ module HangoutsHelper
 	def is_planned(start)
 		start.to_s > Time.zone.now.to_s
 	end
+
+	def rsvp_count(hangout)
+		Rsvp.where(rsvped_id: hangout.id).count
+	end
 end

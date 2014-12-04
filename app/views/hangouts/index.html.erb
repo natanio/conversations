@@ -57,7 +57,7 @@
               </div></li>
             <% end %>
             <li class="chat"></i><%= link_to language_hangout_path(@language, hangout), class: "chat-button" do %>
-              <i class="fi-torsos"></i> 23
+              <i class="fi-torsos"></i> <%= rsvp_count(hangout) %>
               <% end %></li>
           </ul>
           
