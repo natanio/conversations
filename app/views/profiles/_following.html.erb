@@ -6,7 +6,7 @@
 				<tr>
 					<td><%= image_tag(follower.avatar(:thumb)) %></td>
 					<td></td>
-					<td><%= link_to follower.username, profile_path(follower) %></td>
+					<td><%= link_to follower.username, profile_path(follower.profile) %></td>
 					<td>
 						<% unless current_user.following?(follower) %>
 						<%= link_to 'Follow', follows_path(id: follower.profile), method: :post, id:"follow-submit", class: "button small round tiny" %>

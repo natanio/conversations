@@ -10,6 +10,8 @@ class ProfilesController < ApplicationController
 
         @followers = @user.followers_by_type('User')
         @following = @user.following_user
+
+        @following_hangouts = Hangout.where(user_id: @following)
 	end
 
 	private
