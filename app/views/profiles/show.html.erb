@@ -27,7 +27,9 @@
 		    <div class="row">
 			  <div id="pins" class="transitions-enabled small-12 medium-10 large-6">
 				<% @rsvps.each do |rsvp| %>
+					<% unless rsvp.rsvped.end_time.to_s <= Time.now.to_s %>
 					<%= render partial: 'profiles/rsvped_hangouts', locals: {language: rsvp.rsvped.language.id, hangout: rsvp.rsvped } %>
+					<% end %>
 				<% end %>
 				</div>
 			</div>
