@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require jquery.datetimepicker
 //= require foundation
-//= require analytics
 //= require jquery.turbolinks
 //= require turbolinks
 //= require faye
