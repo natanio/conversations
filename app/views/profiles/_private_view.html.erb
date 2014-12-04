@@ -1,0 +1,25 @@
+<dl class="tabs" data-tab>
+		  <dd class="active"><a href="#panel1">My Scheduled Chats</a></dd>
+		  <dd><a href="#panel2">My Chats</a></dd>
+		</dl>
+		<div class="tabs-content">
+		  <div class="content active" id="panel1">
+		    <div class="row">
+			  <div id="pins" class="transitions-enabled small-12 medium-10 large-6">
+				<% @rsvps.each do |rsvp| %>
+					<% unless rsvp.rsvped.end_time.to_s <= Time.now.to_s %>
+					<%= render partial: 'profiles/rsvped_hangouts', locals: {language: rsvp.rsvped.language.id, hangout: rsvp.rsvped } %>
+					<% end %>
+				<% end %>
+				</div>
+			</div>
+		  </div>
+		  <div class="content" id="panel2">
+		    <div class="row">
+			  <div id="pins" class="transitions-enabled small-12 medium-10 large-6">
+				<% @user_hangouts.each do |hangout| %>
+					<%= render partial: 'profiles/rsvped_hangouts', locals: {language: hangout.language.id, hangout: hangout } %>
+				<% end %>
+				</div>
+			</div>
+		</div>
