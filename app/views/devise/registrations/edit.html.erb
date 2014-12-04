@@ -20,6 +20,12 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
+      <div>
+      <%= f.text_field :location, placeholder: "Tokyo, Japan" %></div>
+
+      <div>
+      <%= f.text_field :bio, placeholder: "Tell us a little about you." %></div>
+
       <div><i>(leave blank if you don't want to change it)</i><br />
         <%= f.password_field :password, autocomplete: "off", placeholder: "New Password" %></div>
 

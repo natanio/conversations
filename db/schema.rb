@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203051806) do
+ActiveRecord::Schema.define(version: 20141204025034) do
 
   create_table "follows", force: true do |t|
     t.integer  "followable_id",                   null: false
@@ -114,6 +114,8 @@ ActiveRecord::Schema.define(version: 20141203051806) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.text     "bio"
+    t.string   "location"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
