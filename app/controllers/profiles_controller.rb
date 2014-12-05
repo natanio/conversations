@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
         @followers = @user.followers_by_type('User')
         @following = @user.following_user
 
-        @following_hangouts = Hangout.where(user_id: @following)
+        @following_hangouts = Hangout.where(user_id: @following).where(["end_time > ?", Time.now])
 
         if current_user == @user
             @user_hangouts = Hangout.where(user_id: @user.id).order("start_time DESC")
