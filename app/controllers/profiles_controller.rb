@@ -6,12 +6,17 @@ class ProfilesController < ApplicationController
 
 	def show
 		@user_rsvps = Rsvp.where(user_id: @user.id)
-        @user_hangouts = Hangout.where(user_id: @user.id)
-
         @followers = @user.followers_by_type('User')
         @following = @user.following_user
 
         @following_hangouts = Hangout.where(user_id: @following)
+
+        if current_user == @user
+            @user_hangouts = Hangout.where(user_id: @user.id).order("start_time DESC")
+        else
+            @user_hangouts = Hangout.where(["user_id= ? and private = ?", @user.id, false])
+        end
+        
 	end
 
 	private
