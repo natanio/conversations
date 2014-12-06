@@ -1,0 +1,13 @@
+<ul class="tabs" data-options="deep_linking:true" data-tab role="tablist">
+	  <li class="tab-title active" role="presentational" ><a href="#panel2-2" role="tab" tabindex="0" aria-selected="true" controls="panel2-2">Upcoming Chats</a></li>
+	  <li class="tab-title" role="presentational"><a href="#panel2-3" role="tab" tabindex="0" aria-selected="false" controls="panel2-3">Following Chats</a></li>
+	</ul>
+	<div class="tabs-content">
+	  
+	  <section role="tabpanel" aria-hidden="true" class="content" id="panel2-2">
+	    <%= render 'profiles/rsvped_tab' %>
+	  </section>
+	  <section role="tabpanel" aria-hidden="true" class="content" id="panel2-3">
+	    <%= render 'profiles/following_chats_tab' %>
+	  </section>
+	</div>

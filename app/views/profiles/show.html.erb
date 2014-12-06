@@ -20,7 +20,11 @@
 
 <div class="row">
 	<div class="small-12 medium-12 large-12">
-		<%= render partial: 'profiles/profile_tabs', locals: {user: @user} %>
+		<% unless current_user != @profile.user %>
+		<%= render partial: 'profiles/private_tabs', locals: {user: @user} %>
+		<% else %>
+		<%= render 'profiles/public_tabs' %>
+		<% end %>
 	</div>
 </div>
 
