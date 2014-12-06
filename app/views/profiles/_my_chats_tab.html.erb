@@ -1,5 +1,6 @@
 <!-- My Hangouts -->
 		  <div class="content" id="myChats">
+		  	<% unless current_user != @profile.user %>
 		  	<div class="text-center row">
 		  		<div style="padding: 2em;" class="center big-bottom large-12 columns">
 		  			<h3>Schedule a New Conversation for 
@@ -11,6 +12,7 @@
 					</ul></h3>
 		  		</div>
 		  	</div>
+		  	<% end %>
 
 		    <div class="row">
 			  <div id="pins" class="transitions-enabled small-12 medium-10 large-6">

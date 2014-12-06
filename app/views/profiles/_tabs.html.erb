@@ -1,0 +1,17 @@
+
+	<ul class="tabs" data-tab data-options="deep_linking:true" role="tablist">
+	  <li class="tab-title active" role="presentational" ><a href="#myChats" role="tab" tabindex="0" aria-selected="true" controls="myChats">My Chats</a></li>
+	  <li class="tab-title" role="presentational" ><a href="#scheduledChats" role="tab" tabindex="0" aria-selected="false" controls="scheduledChats">Upcoming Chats</a></li>
+	  <li class="tab-title" role="presentational"><a href="#followingChats" role="tab" tabindex="0" aria-selected="false" controls="followingChats">Following Chats</a></li>
+	</ul>
+	<div class="tabs-content">
+	  <section role="tabpanel" aria-hidden="false" class="content active" id="myChats">
+	    <%= render 'profiles/my_chats_tab' %>
+	  </section>
+	  <section role="tabpanel" aria-hidden="true" class="content" id="scheduledChats">
+	    <%= render 'profiles/rsvped_tab' %>
+	  </section>
+	  <section role="tabpanel" aria-hidden="true" class="content" id="followingChats">
+	    <%= render 'profiles/following_chats_tab' %>
+	  </section>
+	</div>
