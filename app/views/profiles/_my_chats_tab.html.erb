@@ -1,5 +1,17 @@
 <!-- My Hangouts -->
-		  <div class="content" id="panel3">
+		  <div class="content" id="myChats">
+		  	<div class="text-center row">
+		  		<div style="padding: 2em;" class="center big-bottom large-12 columns">
+		  			<h3>Schedule a New Conversation for 
+		  			<button href="#" data-dropdown="languages" aria-controls="drop1" aria-expanded="false" class="button dropdown success round">Select Language</button><br>
+					<ul id="languages" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+						<% @following_languages.each do |language| %>
+					  <li><%= link_to language.name, new_language_hangout_path(language) %></li>
+					  <% end %>
+					</ul></h3>
+		  		</div>
+		  	</div>
+
 		    <div class="row">
 			  <div id="pins" class="transitions-enabled small-12 medium-10 large-6">
 				<%= render partial: 'hangouts/hangout_pins', locals: { hangouts: @user_hangouts } %>

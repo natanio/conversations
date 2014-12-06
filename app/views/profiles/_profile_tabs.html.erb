@@ -1,0 +1,32 @@
+
+		  <% unless current_user != @profile.user %>
+		  <dl class="tabs" data-tab>
+		  	<dd class="active"><a href="#myChats">My Chats</a></dd>
+		  	<dd><a href="#rsvpedChats">Upcoming Chats</a></dd>
+		  	<dd><a href="#followingChats">Following Chats</a></dd>
+		  </dl>
+		  <% else %>
+		  <dl class="tabs" data-tab>
+		  	<dd class="active"><a href="#rvpedChats">Upcoming Chats</a></dd>
+		  	<dd><a href="#followingChats">Following Chats</a></dd>
+		  </dl>
+		  <% end %>	
+
+		<% unless current_user != @profile.user %>
+		<div class="tabs-content">
+				<%= render 'profiles/my_chats_tab' %>
+		 		<%= render 'profiles/rsvped_tab' %>
+				<%= render 'profiles/following_chats_tab' %>
+		</div>
+		<% else %>
+			<div class="tabs-content">
+				<%= render 'profiles/rsvped_tab' %>
+				<%= render 'profiles/following_chats_tab' %>
+			</div>
+		<% end %>
+
+		  
+
+		  
+		  
+	

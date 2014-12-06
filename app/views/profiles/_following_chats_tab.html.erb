@@ -1,8 +1,12 @@
 <!-- Following Hangouts -->
-		  <div class="content" id="panel2">
+		  <div class="content" id="followingChats">
 			    <div class="row">
 				  <div id="pins" class="transitions-enabled small-12 medium-10 large-6">
-						<%= render partial: 'hangouts/hangout_pins', locals: { hangouts: @following_hangouts } %>
+				  	<% @following_hangouts.each do |hangout| %>
+						<% unless @user != current_user && hangout.private%>
+						<%= render partial: 'profiles/rsvped_hangouts', locals: {language: hangout.language.id, hangout: hangout } %>
+						<% end %>
+				    <% end %>
 					</div>
 				</div>
 			</div>
