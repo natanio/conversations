@@ -1,4 +1,9 @@
 class Hangout < ActiveRecord::Base
+	include Filterable
+
+	scope :active, -> { where('end_time > ?', Time.now)}
+	scope :archived, -> { where('end_time <= ?', Time.now)}
+
 	belongs_to :language
 	belongs_to :user
 	has_many :posts, dependent: :destroy

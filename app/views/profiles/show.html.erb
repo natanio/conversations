@@ -2,6 +2,8 @@
 	<%= image_tag(@user.avatar.url(:medium)) %>
 	<h2><%= @profile.user.username %></h2>
 	<p class='user-bio'><%= @profile.user.bio %></p>
+	<div class="user-level">
+	</div>
 	<p class="sub-text"><%= @profile.user.location %></p>
 	<a href="#" data-reveal-id="followerModal">Followers <%= @user.followers_by_type_count('User') %></a>, <a href="#" data-reveal-id="followingModal">Following <%= @user.following_by_type_count('User') %></a>
 	<br>

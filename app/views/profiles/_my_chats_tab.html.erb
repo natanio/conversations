@@ -11,6 +11,11 @@
 					  <% end %>
 					</ul></h3>
 		  		</div>
+		  		<button href="#" data-dropdown="sort" aria-controls="drop1" aria-expanded="false" class="button dropdown round">Active</button><br>
+					<ul id="sort" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+					  <li><%= link_to 'Active', profile_path(@user.profile, :controller => "hangouts", :active=> Time.now) %></li>
+					  <li><%= link_to 'Archived', profile_path(@user.profile, :archived => true) %></li>
+					</ul>
 		  	</div>
 		  	<% end %>
 
