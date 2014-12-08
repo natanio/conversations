@@ -14,7 +14,8 @@ class HangoutsController < ApplicationController
   # GET /hangouts/1.json
   def show
     if params[:tag]
-      @posts = @hangout.posts.tagged_with(params[:tag])
+      #@posts = @hangout.posts.tagged_with(params[:tag])
+      @posts = Post.tagged_with(params[:tag]).find_all_by_hangout_id(params[:hangout_id])
     else
       @posts = @hangout.posts
     end
