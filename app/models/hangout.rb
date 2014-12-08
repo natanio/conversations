@@ -11,4 +11,5 @@ class Hangout < ActiveRecord::Base
 	has_many :taggings
 	has_many :tags, through: :taggings
 	has_many :rsvps, dependent: :destroy
+	has_many :tags, dependent: :destroy
 end

@@ -4,6 +4,8 @@ class Post < ActiveRecord::Base
 	has_many :taggings
 	has_many :tags, through: :taggings
 
+	after_save :update_tags
+
 	def all_tags=(names)
   		self.tags = names.split(",").map do |name|
       	Tag.where(name: name.strip).first_or_create!
@@ -16,5 +18,13 @@ class Post < ActiveRecord::Base
 
 	def self.tagged_with(name)
   		Tag.find_by_name!(name).posts
+	end
+
+	protected
+
+	def update_tags
+		self.tags.each do |tag|
+			tag.update_column('hangout_id', self.hangout_id)
+		end
 	end
 end
