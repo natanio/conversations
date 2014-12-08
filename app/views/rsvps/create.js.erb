@@ -1,1 +1,2 @@
 $('#rsvp-submit<%= @hangout.id.to_s %>').html('<%= escape_javascript( render partial: 'rsvps/rsvp_hangout', locals: { hangout: @hangout }  ) %>');
+$('#rsvp-count<%= @hangout.id.to_s %> a.chat-button').html('<i class="fi-torsos"> </i><%= j rsvp_count(@hangout).to_s %>');
