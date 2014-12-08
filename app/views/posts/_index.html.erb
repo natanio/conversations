@@ -28,7 +28,7 @@
   
     <div id="tagModal" class="reveal-modal small" data-reveal>
       <h4>Tag Cloud</h4>
-          <% tag_cloud Tag.counts_with_hangout(params[:id]), %w{css1 css2 css3 css4} do |tag, css_class| %>
+          <% tag_cloud Tag.counts_with_hangout(@hangout.id), %w{css1 css2 css3 css4} do |tag, css_class| %>
           <%= link_to tag.name, language_hangout_tag_path(@language, @hangout, tag.name), class: css_class %>
           <% end %>
       <a class="close-reveal-modal">&#215;</a>
