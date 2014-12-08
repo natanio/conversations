@@ -7,7 +7,7 @@ class ProfilesController < ApplicationController
 	def show
 
         if current_user == @user
-            @user_hangouts = Hangout.where(user_id: @user.id).filter(params.slice(:active, :archived)).order("start_time asc")
+            @user_hangouts = Hangout.where(user_id: @user.id).filter(params.slice(:active, :archived, :live)).order("start_time asc")
         else
             @user_hangouts = Hangout.where(["user_id= ? and private = ? and end_time > ?", @user.id, false, Time.now])
         end

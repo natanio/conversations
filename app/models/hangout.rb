@@ -3,6 +3,7 @@ class Hangout < ActiveRecord::Base
 
 	scope :active, -> { where('end_time > ?', Time.now)}
 	scope :archived, -> { where('end_time <= ?', Time.now)}
+	scope :live, where('start_time >= ? and end_time < ?', Time.now, Time.now)
 
 	belongs_to :language
 	belongs_to :user
