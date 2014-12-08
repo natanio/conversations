@@ -3,7 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $('#pins').imagesLoaded ->
-    $('.tabs-content #pins').masonry
-      itemSelector: '.box'
-      isFitWidth: true
+    $('.tabs-content').load ->
+    $('section#scheduledChats').click ->
+	    $('.tabs-content #rsvpedChats').masonry
+	      itemSelector: '.box'
+	      isFitWidth: true
