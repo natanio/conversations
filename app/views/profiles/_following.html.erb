@@ -1,6 +1,13 @@
 <div class="followers text-center row">
 	<div class="large-12">
 		<h4><%= @profile.user.username + ' follows' %></h4>
+		<% if @user.following_by_type_count('User') == 0 %>
+		<% if current_user == @profile.user %>
+		<p>You aren't following anyone yet. Don't be shy! :)</p>
+		<% else %>
+		<p>This person isn't following anyone yet.</p>
+		<% end %>
+	<% else %>
 	<table>
 		<tbody>
 			<% @following.each do |follower| %>
@@ -19,5 +26,6 @@
 			<% end %>
 		</tbody>
 	</table>
+	<% end %>
 </div>
 </div>

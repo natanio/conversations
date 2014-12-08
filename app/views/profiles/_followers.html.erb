@@ -1,6 +1,13 @@
 <div class="followers text-center row">
 	<div class="large-12">
 		<h4><%= @profile.user.username + "'s followers" %></h4>
+	<% if @user.followers_by_type_count('User') == 0 %>
+		<% if current_user == @profile.user %>
+		<p>You don't have any followers yet. Start a chat and make some friends :)</p>
+		<% else %>
+		<p>Why not be this person's first follower? <%= link_to 'Follow', follows_path(id: @profile), method: :post, id:"follow-submit", class: "button small success round tiny" %></p>
+		<% end %>
+	<% else %>
 	<table>
 		<tbody>
 			<% @followers.each do |follower| %>
@@ -19,5 +26,6 @@
 			<% end %>
 		</tbody>
 	</table>
+	<% end %>
 </div>
 </div>
