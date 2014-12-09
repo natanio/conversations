@@ -5,7 +5,7 @@
           <h3>Sadface. This chat ended without any messages.</h3>
         <% elsif @hangout.start_time.to_s > Time.zone.now.to_s %>
         <div class="chat-panel" style="min-height: 100px; text-align: center; max-width: 60%; margin: 0 auto; overflow: hidden">
-          <div class="chat-title"><h5>This conversation hansn't started.</h5></div>
+          <div class="chat-title"><h5>This conversation hasn't started.</h5></div>
           <div class="chat-description">
             <p>If you can make it to this chat, make sure you've clicked 'RSVP' below. If you see the "<i class="fi-check"></i>" you can find this chat on your <%= link_to 'profile', profile_path(current_user.profile) %></p>
           </div>
