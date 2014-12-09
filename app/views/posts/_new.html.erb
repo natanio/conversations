@@ -2,7 +2,7 @@
   <%= form_for([@language, @hangout, Post.new], remote: true) do |f| %>
 
     <div class="medium-12 large-10 large-centered columns">
-      <%= f.text_area :content, placeholder: "Your comment", rows: 5 %>
+        <%= f.text_area :content, placeholder: "Your comment", rows: 5 %>     
     </div>
 
     <div class="medium-12 large-10 large-centered columns">

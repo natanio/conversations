@@ -6,6 +6,9 @@ class Post < ActiveRecord::Base
 
 	after_save :update_tags
 
+	# Validation
+	validates :content, :presence => true
+
 	def all_tags=(names)
   		self.tags = names.split(",").map do |name|
       	Tag.where(name: name.strip).first_or_create!

@@ -1,6 +1,11 @@
 class Hangout < ActiveRecord::Base
 	include Filterable
 
+	# Validations
+  	#
+	validates :name, :description, :user_id, :language_id, :start_time, :end_time, :presence => true
+	validates :name, :length => { :maximum => 140, :minimum => 2 }
+
 	scope :active, -> { where('end_time > ?', Time.now)}
 	scope :archived, -> { where('end_time <= ?', Time.now)}
 	scope :live, -> { where('start_time <= ? and end_time > ?', Time.now, Time.now)}
