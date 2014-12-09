@@ -1,7 +1,30 @@
 <div class="row chat-buffer mt pt">
     <div id="posts">
       <div class="posts-list">
+        <% if @posts.empty? && @hangout.end_time.to_s <= Time.zone.now.to_s %>
+          <h3>Sadface. This chat ended without any messages.</h3>
+        <% elsif @hangout.start_time.to_s > Time.zone.now.to_s %>
+        <div class="chat-panel" style="min-height: 100px; text-align: center; max-width: 60%; margin: 0 auto; overflow: hidden">
+          <div class="chat-title"><h5>This conversation hansn't started.</h5></div>
+          <div class="chat-description">
+            <p>If you can make it to this chat, make sure you've clicked 'RSVP' below. If you see the "<i class="fi-check"></i>" you can find this chat on your <%= link_to 'profile', profile_path(current_user.profile) %></p>
+          </div>
+          <div class="chat-buttons">
+            <ul>
+              <li class="chat"><div id="<%= 'rsvp-submit' + hangout.id.to_s %>">
+                  <%= render partial: 'rsvps/rsvp_hangout', locals: { language: hangout.language, hangout: hangout } %>
+                </div>
+              </li>
+              <li class="chat"><div id="<%= 'rsvp-count' + hangout.id.to_s %>"><%= link_to language_hangout_path(@hangout.language, @hangout), class: "chat-button" do %>
+                <i class="fi-torsos"></i> <%= rsvp_count(@hangout) %>
+                <% end %></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <% else %>
         <%= render @posts.reverse %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -17,7 +40,7 @@
           <%= render partial: "posts/past_hangout" %>
           <% elsif @hangout.start_time.to_s > Time.zone.now.to_s %>
           <div class="text-center">
-            <p style="color:white">This conversation hasn't started yet. Come back at:</p>
+            <p style="color:white">This conversation hasn't started yet. Come back on:</p>
             <p style="color:white; font-weight: 700"><%= @hangout.start_time.strftime("%b %e, '%y - %I:%M%P") %><p>
             </div>
           <% else %>

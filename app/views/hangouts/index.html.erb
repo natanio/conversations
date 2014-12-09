@@ -1,11 +1,18 @@
 <div class="row text-center">
   <div class="title small-12 medium-12 large-12">
-    <h1>Join a Conversation About <%= @language.name.capitalize %></h1>
+    <h1>Join a Conversation in <%= @language.name.capitalize %></h1>
 
-      <%= link_to new_language_hangout_path(@language, @hangout), class: "button" do %>
+      <%= link_to new_language_hangout_path(@language, @hangout), class: "button success" do %>
         <i class="fi-plus"></i> New Conversation
       <% end %>
   </div>
 </div>
 
+<% unless @hangouts.present? %>
+<div class="text-center">
+	<h4>Sorry, couldn't find anything.</h4>
+	<p>There aren't any active or public chats right now. Why not start one?</p>
+</div>
+<% else %>
 <%= render partial: 'hangouts/hangout_pins', locals: {hangouts: @hangouts} %>
+<% end %>
