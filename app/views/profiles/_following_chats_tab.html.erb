@@ -2,10 +2,24 @@
 		  <div class="content" id="followingChats">
 			    <div class="row">
 				  <div id="pins" class="transitions-enabled small-12 medium-10 large-6">
+				  	<% unless @following_hangouts.present? %>
+				  		
+				  		<div class="text-center">
+				  			<% if current_user == @profile.user %>
+				  			<h3>Sorry. Couldn't find anything.</h3>
+				  			<p>Looks like none of the people you follow have any active chats right now.</p>
+				  			<% else %>
+				  			<h3>Sorry. Couldn't find anything.</h3>
+				  			<p>Looks like none of the people <%= @profile.user.username %> follows have any active chats right now.</p>
+				  			<% end %>
+				  		</div>
+				  		
+			  		<% else %>
 				  	<% @following_hangouts.each do |hangout| %>
 						<% unless @user != current_user && hangout.private%>
 						<%= render partial: 'profiles/rsvped_hangouts', locals: {language: hangout.language.id, hangout: hangout } %>
 						<% end %>
+				    <% end %>
 				    <% end %>
 					</div>
 				</div>

@@ -11,7 +11,7 @@
 					  <% end %>
 					</ul></h3>
 		  		</div>
-		  		<button href="#" data-dropdown="sort" aria-controls="drop1" aria-expanded="false" class="button dropdown round">Sort</button><br>
+		  		<button href="#" data-dropdown="sort" aria-controls="drop1" aria-expanded="false" class="button dropdown tiny round">Sort</button><br>
 					<ul id="sort" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
 					  <li><%= link_to 'Active', profile_path(@user.profile, :controller => "hangouts", :active=> true) %></li>
 					  <li><%= link_to 'Old', profile_path(@user.profile, :archived => true) %></li>
@@ -20,9 +20,20 @@
 		  	</div>
 		  	<% end %>
 
+		  	<% unless @user_hangouts.present? %>
+		  		<div class="text-center">
+			  			<% if current_user == @profile.user %>
+			  			<h3>You don't have any chats.</h3>
+			  			<p>Start by adding one with the button above.</p>
+			  			<% else %>
+			  			<h3><%=@profile.user.username %> doesn't have any active or public chats right now.</h3>
+						<% end %>
+			  		</div>
+		  	<% else %>
 		    <div class="row">
 			  <div id="pins" class="transitions-enabled small-12 medium-10 large-6">
 				<%= render partial: 'hangouts/hangout_pins', locals: { hangouts: @user_hangouts } %>
 				</div>
 			</div>
+			<% end %>
 		</div>
