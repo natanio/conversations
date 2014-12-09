@@ -17,9 +17,10 @@
 		  		</div>
 		  		<button href="#" data-dropdown="sort" aria-controls="drop1" aria-expanded="false" class="button dropdown tiny round">Sort</button><br>
 					<ul id="sort" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
-					  <li><%= link_to 'Active', profile_path(@user.profile, :controller => "hangouts", :active=> true) %></li>
-					  <li><%= link_to 'Old', profile_path(@user.profile, :archived => true) %></li>
 					  <li><%= link_to 'Live', profile_path(@user.profile, :live => true)%></li>
+					  <li><%= link_to 'Active', profile_path(@user.profile, :controller => "hangouts", :active=> true) %></li>
+					  <li><%= link_to 'Joined', profile_path(@user.profile, :joined => true)%></li>
+					  <li><%= link_to 'Old', profile_path(@user.profile, :archived => true) %></li>
 					</ul>
 		  	</div>
 		  	<% end %>

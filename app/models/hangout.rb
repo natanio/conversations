@@ -9,6 +9,7 @@ class Hangout < ActiveRecord::Base
 	scope :active, -> { where('end_time > ?', Time.now)}
 	scope :archived, -> { where('end_time <= ?', Time.now)}
 	scope :live, -> { where('start_time <= ? and end_time > ?', Time.now, Time.now)}
+	scope :joined, -> { where("id = ?", Post.find_by_user_id(1).hangout_id) }
 
 	belongs_to :language
 	belongs_to :user

@@ -15,6 +15,8 @@ class ProfilesController < ApplicationController
                 @user_hangouts = @user_hangouts.active
             elsif params[:archived].present?
                 @user_hangouts = @user_hangouts.archived
+            elsif params[:joined].present?
+                @user_hangouts = Hangout.joined
             end
         else
             @user_hangouts = Hangout.where(["user_id= ? and private = ? and end_time > ?", @user.id, false, Time.now])

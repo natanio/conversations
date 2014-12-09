@@ -12,6 +12,7 @@
 						<% end %>
 			  		</div>
 			  	<% else %>
+
 				<% @user_rsvps.each do |rsvp| %>
 					<% unless is_finished(rsvp.rsvped.end_time) %>
 					<%= render partial: 'profiles/rsvped_hangouts', locals: {language: rsvp.rsvped.language.id, hangout: rsvp.rsvped } %>
