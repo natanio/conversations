@@ -5,9 +5,7 @@
 
     <h1>Choose a Language</h1>
     
-    <div class="panel callout radius">
-      <p class="lead">What language do you want to practice?</p>
-    </div>
+    <p>To browse conversations in the languages below, click 'Practice'.</p>
     <%if user_signed_in? && current_user.admin? %><%= link_to 'New Language', new_language_path, class: "button small round success" %><% end %>
   </div>
 
