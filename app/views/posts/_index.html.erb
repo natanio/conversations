@@ -23,7 +23,9 @@
           </div>
         </div>
         <% else %>
+        <table style="width: 100%;" id="rooms-list"></table>
         <%= render @posts.reverse %>
+        <%= render 'posts/video_chat' %>
         <% end %>
       </div>
     </div>

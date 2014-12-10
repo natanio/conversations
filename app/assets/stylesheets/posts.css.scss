@@ -65,3 +65,9 @@
 .chat-buffer {
   margin-bottom: 300px;
 }
+
+/* Video Chat */
+#videos-container video {
+  max-width: 200px;
+  margin: 2em;
+}
