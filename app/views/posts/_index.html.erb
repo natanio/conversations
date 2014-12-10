@@ -53,7 +53,7 @@
   
     <div id="tagModal" class="reveal-modal small" data-reveal>
       <h4>Tag Cloud</h4>
-        <% unless Tag.counts_with_hangout(@hangout.id) == 0 %>
+        <% unless Tag.counts_with_hangout(@hangout.id) != 0 %>
           <p>There are no tags to display.</p>
         <% else %>
           <% tag_cloud Tag.counts_with_hangout(@hangout.id), %w{css1 css2 css3 css4} do |tag, css_class| %>
