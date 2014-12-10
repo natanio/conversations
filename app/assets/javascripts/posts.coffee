@@ -6,8 +6,16 @@ client.addExtension {
     message.ext.csrfToken = $('meta[name=csrf-token]').attr('content')
     callback(message)
 }
- 
+
 jQuery ->
+  $('#new_comment').submit ->
+    $(this).find("input[type='submit']").val('Sending...').prop('disabled', true)
+
+  try
+    client.unsubscribe '/posts'
+  catch
+    console?.log "Can't unsubscribe."
+
   client.subscribe '/posts', (payload) ->
     $('#posts').find('.posts-list').prepend(payload.message) if payload.message
 
