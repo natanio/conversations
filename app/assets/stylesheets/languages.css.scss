@@ -62,3 +62,25 @@ border-right: 1px solid #2ECC71;
 	border-radius: 50%;
 	border: 6px solid gray;
 }
+
+a.follower-name{ 
+	font-size: 1em;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: bold;
+	color: rgb(95, 95, 95);
+	margin-bottom: 0.5em;
+}
+
+a.follower-name:hover { 
+	font-size: 1em;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: bold;
+	color: #424242;
+	margin-bottom: 0.5em;
+}
+
+p.follower-bio{ 
+	font-size: 0.85em;
+	margin-bottom: 0.5em;
+	color: rgb(142, 142, 142);
+}

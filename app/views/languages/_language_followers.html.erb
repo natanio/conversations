@@ -12,8 +12,8 @@
 				      <tr>
 						<td><%= link_to( image_tag(user.avatar.url(:thumb)), profile_path(user.profile)) %></td>
 						<td>
-							<%= user.username %>
-							<%= truncate(user.bio, :length => 60) %>
+							<%= link_to user.username, profile_path(user.profile), class: "follower-name" %></p>
+							<p class="follower-bio"><%= truncate(user.bio, :length => 60) %></p>
 						</td>
 						<td>
 						<% unless current_user.following?(user) %>
