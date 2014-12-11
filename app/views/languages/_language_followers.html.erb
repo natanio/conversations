@@ -12,7 +12,7 @@
 				      <tr>
 						<td><%= link_to( image_tag(user.avatar.url(:thumb)), profile_path(user.profile)) %></td>
 						<td>
-							<%= link_to user.username, profile_path(user.profile), class: "follower-name" %></p>
+							<%= link_to user.username, profile_path(user.profile), class: "follower-name" %>
 							<p class="follower-bio"><%= truncate(user.bio, :length => 60) %></p>
 						</td>
 						<td>

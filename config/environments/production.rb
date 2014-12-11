@@ -79,7 +79,7 @@ Chatroom::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # For Devise. Live site should be actual host
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: 'alpha.fluentli.com' }
 
   # Paperclip and S3
   config.paperclip_defaults = {
