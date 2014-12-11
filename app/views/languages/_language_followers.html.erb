@@ -1,0 +1,34 @@
+<div id="followersModal<%=language.id%>" class="reveal-modal language-followers" data-reveal>
+	<div class="followers text-center row">
+	<div class="large-12">
+		<h4>People Following <%= language.name %></h4>
+	      <% if language.followers_by_type_count('User') == 0 %>
+		  <p>Cool! You can be this language's first follower! <%= link_to 'Follow', follows_path(id: @profile), method: :post, id:"follow-submit", class: "button small success round tiny" %></p>
+			<% else %>
+			<table>
+				<tbody>
+				  <% language.user_followers.each do |user| %>
+				    <% unless current_user == user %>
+				      <tr>
+						<td><%= link_to( image_tag(user.avatar.url(:thumb)), profile_path(user.profile)) %></td>
+						<td>
+							<%= user.username %>
+							<%= truncate(user.bio, :length => 60) %>
+						</td>
+						<td>
+						<% unless current_user.following?(user) %>
+							<%= link_to 'Follow', follows_path(id: user.profile), method: :post, id:"follow-submit", class: "button small success round tiny" %>
+						<% else %>
+							<%= link_to 'Unfollow', follow_path(id: user.profile), method: :delete, class: 'button small round alert tiny' %>
+						<% end %>
+					    </td>
+					  </tr>
+					<% end %>
+				  <% end %>
+				  </tbody>
+			</table>
+		  <% end %>
+    	<a class="close-reveal-modal">&#215;</a>
+	</div>
+   </div>
+</div>

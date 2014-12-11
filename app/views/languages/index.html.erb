@@ -29,7 +29,9 @@
             <% end %>
           <%= language.name %></h3>
           <div class="row">
-            <p class="language"><i class="fi-torsos-all"></i> <%= language.followers_count %> Follower<%= if language.followers_count  > 1 || language.followers_count == 0 then "s" end %></p>
+            <p class="language"><a href="#" data-reveal-id="followersModal<%=language.id%>"><i class="fi-torsos-all"></i> <%= language.followers_count %> Follower<%= if language.followers_count  > 1 || language.followers_count == 0 then "s" end %></a></p>
+
+            <%= render partial: "languages/language_followers", locals: {language: language } %>
             
           </div>
           <div class="row">
@@ -44,6 +46,7 @@
             <%= link_to 'Practice', language_hangouts_path(language), class: "language-button" %>
           </div>
         </div>
+
         <% end %>
       
       </div>

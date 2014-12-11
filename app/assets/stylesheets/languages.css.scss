@@ -56,3 +56,9 @@ border-right: 1px solid #2ECC71;
   /* ...and now for the proper property */
   transition:.3s;
 }
+
+.language-followers img {
+	max-width: 90px;
+	border-radius: 50%;
+	border: 6px solid gray;
+}
