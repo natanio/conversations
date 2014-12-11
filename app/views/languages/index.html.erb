@@ -6,6 +6,11 @@
     <h1>Choose a Language</h1>
     
     <p>To browse conversations in the languages below, click 'Practice'.</p>
+    <button href="#" data-dropdown="sort" aria-controls="drop1" aria-expanded="false" class="button dropdown tiny round">Sort</button><br>
+          <ul id="sort" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+            <li><%= link_to 'All', languages_path %></li>
+            <li><%= link_to 'Following', languages_path(:following=> true) %></li>
+          </ul>
     <%if user_signed_in? && current_user.admin? %><%= link_to 'New Language', new_language_path, class: "button small round success" %><% end %>
   </div>
 

@@ -5,7 +5,11 @@ class LanguagesController < ApplicationController
   # GET /languages
   # GET /languages.json
   def index
-    @languages = Language.all.order('name ASC')
+    if params[:following].present?
+      @languages = current_user.following_by_type('Language')
+    else
+      @languages = Language.all.order('name ASC')
+    end
   end
 
   # GET /languages/1
