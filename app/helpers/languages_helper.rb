@@ -16,6 +16,6 @@ module LanguagesHelper
   end
 
   def live_hangout_count(language)
-  	Hangout.where(["language_id = ? and start_time <= ? and end_time > ?", language.id, Time.now, Time.now]).count
+  	Hangout.where(["language_id = ? and private = ? and start_time <= ? and end_time > ?", language.id, false, Time.now, Time.now]).count
   end
 end

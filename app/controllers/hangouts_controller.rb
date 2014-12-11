@@ -8,6 +8,14 @@ class HangoutsController < ApplicationController
   # GET /hangouts.json
   def index
       @hangouts = Hangout.where(["language_id = ? and private = ? and end_time > ?" , @language.id, false, Time.now]).order( 'start_time ASC' )
+
+      if params[:scheduled].present?
+        @hangouts = @hangouts.scheduled
+      elsif params[:live].present?
+        @hangouts = @hangouts.live
+      else
+        @hangouts
+      end
   end
 
   # GET /hangouts/1

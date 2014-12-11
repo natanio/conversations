@@ -35,10 +35,14 @@
             
           </div>
           <div class="row">
-            <p class="language"><i class="fi-calendar"></i> <%= scheduled_hangout_count(language) %> Future Chat<%= if scheduled_hangout_count(language) > 1 || scheduled_hangout_count(language) == 0 then "s" end %></p>
+            <p class="language"><%= link_to language_hangouts_path(language, :scheduled => true) do %>
+              <i class="fi-calendar"></i> <%= scheduled_hangout_count(language) %> Future Chat<%= if scheduled_hangout_count(language) > 1 || scheduled_hangout_count(language) == 0 then "s" end %>
+              <% end %></p>
           </div>
           <div class="row">
-            <p class="language"><i class="fi-play"></i> <%= live_hangout_count(language) %> Live Chat<%= if live_hangout_count(language) > 1 || live_hangout_count(language) == 0 then "s" end %></p>
+            <p class="language"><%= link_to language_hangouts_path(language, :live => true) do %>
+              <i class="fi-play"></i> <%= live_hangout_count(language) %> Live Chat<%= if live_hangout_count(language) > 1 || live_hangout_count(language) == 0 then "s" end %>
+              <% end %></p>
           </div>
           <br>
           
