@@ -12,16 +12,31 @@
     <div class="row">
       <div id="pins" class="transitions-enabled small-12 medium-12 large-12">
         <% @languages.each do |language| %>
-        <div class="box panel text-center">
-          <% unless current_user.following?(language) %>
-            <%= link_to 'Follow', languagefollows_path(id: language), method: :post, id:"follow-submit", class: "button small round tiny" %>
-          <% else %>
-            <%= link_to 'Following', languagefollow_path(id: language), method: :delete, class: "button small round secondary tiny" %>
-          <% end %>
-
-          <h3><%= language.name %></h3>
-          <div class="top-margin">
-            <%= link_to 'Practice', language_hangouts_path(language), class: "button small round success" %>
+        <div class="box language-panel text-center">
+         <h3> <% unless current_user.following?(language) %>
+            <%= link_to languagefollows_path(id: language), method: :post, id:"follow-submit", class: "follow-star", title: 'Follow' do %>
+              <i class="fi-star"></i>
+              <% end %>
+            <% else %>
+              <%= link_to languagefollow_path(id: language), method: :delete, class: "following-star", title: 'Following' do %>
+              <i class="fi-star"></i>
+              <% end %>
+            <% end %>
+          <%= language.name %></h3>
+          <div class="row">
+            <p class="language"><i class="fi-torsos-all"></i> <%= language.followers_count %> Follower<%= if language.followers_count  > 1 || language.followers_count == 0 then "s" end %></p>
+            
+          </div>
+          <div class="row">
+            <p class="language"><i class="fi-calendar"></i> <%= scheduled_hangout_count(language) %> Future Chat<%= if scheduled_hangout_count(language) > 1 || scheduled_hangout_count(language) == 0 then "s" end %></p>
+          </div>
+          <div class="row">
+            <p class="language"><i class="fi-play"></i> <%= live_hangout_count(language) %> Live Chat<%= if live_hangout_count(language) > 1 || live_hangout_count(language) == 0 then "s" end %></p>
+          </div>
+          <br>
+          
+          <div class="language-buttons">
+            <%= link_to 'Practice', language_hangouts_path(language), class: "language-button" %>
           </div>
         </div>
         <% end %>
