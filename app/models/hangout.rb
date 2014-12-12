@@ -36,7 +36,10 @@ class Hangout < ActiveRecord::Base
   	end
 
   	def new_scheduled_chat_mailer
-    followers = self.language.user_followers
+  		user = User.where(id: self.user_id)
+    	followers = self.language.user_followers
+    	user_followers = user.user_followers
+
 
 	    if !followers.empty?
 	      followers.each do |follower|
