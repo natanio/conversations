@@ -6,10 +6,10 @@
   <body>
     <p>Hi <%= @user.username %>,</p>
     <p>
-      There's a new <%= @language %> starting now. It will end at: <%= @end_time %>.
+      A chat in <%= @language %> has been scheduled. It will start on: <%= @start_time %>.
     </p>
     <p>
-      If you can make it, just follow this link: <%= link_to '#{@language} Chat', language_hangout_path(@hangout.language, @hangout) %>.
+      If you can make it, just follow this link RSVP: <%= link_to '#{@language} Chat', language_hangout_path(@hangout.language, @hangout) %>.
     </p>
     <p>Have fun!</p>
     <p>Nate | Founder</p>

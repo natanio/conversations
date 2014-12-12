@@ -35,11 +35,25 @@ class Hangout < ActiveRecord::Base
 	    end
   	end
 
+  	def new_scheduled_chat_mailer
+    followers = self.language.user_followers
+
+	    if !followers.empty?
+	      followers.each do |follower|
+	      	unless follower == self.user_id
+	        	UserMailer.new_scheduled_chat(self, follower)
+	        end
+	      end
+	    end
+  	end
+
 	private
 
 	def send_notifications
 		if self.start_time <= Time.now
     		self.new_live_chat_mailer
+    	else
+    		self.new_scheduled_chat_mailer
     	end
   	end
 
