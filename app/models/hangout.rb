@@ -29,7 +29,7 @@ class Hangout < ActiveRecord::Base
 	    if !followers.empty?
 	      followers.each do |follower|
 	      	if follower != self.user && follower.following?(self.user)
-	        	UserMailer.new_live_chat(self, follower)
+	        	UserMailer.new_live_chat(self, follower).deliver
 	        end
 	      end
 	    end
@@ -41,7 +41,7 @@ class Hangout < ActiveRecord::Base
 	    if !followers.empty?
 	      followers.each do |follower|
 	      	if follower != self.user && follower.following?(self.user)
-	        	UserMailer.new_scheduled_chat(self, follower)
+	        	UserMailer.new_scheduled_chat(self, follower).deliver
 	        end
 	      end
 	    end
