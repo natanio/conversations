@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_attached_file :avatar, :s3_host_name => "s3-us-west-2.amazonaws.com", :styles => { :medium => "300x300#", :thumb => "100x100#" }, :default_url => "http://www.oldbookillustrations.com/gallery/characters/elder-lady.jpg"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/ 
+  validates :username, presence: true, uniqueness: true
   private
     def set_username
       a = ['achlis', 'unicorn', 'bodach', 'camahueto', 'centaur', 'diwata', 'drakon', 'reichsadler', 'rompo', 'likho', 'lynx', 'sphinx', 'squonk' ]
