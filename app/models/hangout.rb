@@ -1,6 +1,8 @@
 class Hangout < ActiveRecord::Base
 	include Filterable
 
+	after_create :send_notifications
+
 	# Validations
   	#
 	validates :name, :description, :user_id, :language_id, :start_time, :end_time, :presence => true
@@ -20,5 +22,25 @@ class Hangout < ActiveRecord::Base
 	has_many :tags, through: :taggings
 	has_many :tags, dependent: :destroy
 	has_many :rsvps, foreign_key: "rsvped_id", dependent: :destroy
+
+	def new_live_chat_mailer
+    followers = self.language.user_followers
+
+	    if !followers.empty?
+	      followers.each do |follower|
+	      	unless follower == self.user_id
+	        	UserMailer.new_live_chat(self, follower)
+	        end
+	      end
+	    end
+  	end
+
+	private
+
+	def send_notifications
+		if self.start_time <= Time.now
+    		self.new_live_chat_mailer
+    	end
+  	end
 
 end
