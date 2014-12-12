@@ -1,5 +1,6 @@
 <div class="text-center profile-head">
-	<div class="large-3 panel center"><%= if current_user.admin? then User.all.count end %> Users</div>
+	<% if current_user.admin? %>
+	<div class="large-3 panel center"><%= User.all.count %> Users</div><% end %>
 	<%= image_tag(@user.avatar.url(:medium)) %>
 	<h2><%= @profile.user.username %></h2>
 	<p class='user-bio'><%= @profile.user.bio %></p>
