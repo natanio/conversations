@@ -6,14 +6,13 @@
   <body>
     <p>Hi <%= @user.username %>,</p>
     <p>
-      There's a new <%= @language %> starting now. It will end at: <%= @end_time %>.
+      There's a new <%= @language %> chat starting now. It will end on: <%= @end_time.strftime("%B %d, %Y - %l:%M%p") %>.
     </p>
     <p>
-      If you can make it, just follow this link: <%= link_to '#{@language} Chat - #{@hangout.name}', language_hangout_path(@hangout.language, @hangout) %>.
+      If you can make it, just follow this link: <%= link_to @language + " Chat - " + @hangout.name, "http://alpha.fluentli.com/languages/#{@hangout.language.id}/hangouts/#{@hangout.id}" %>.
     </p>
     <p>Have fun!</p>
-    <p>Nate | Founder</p>
-    <br>
-    <a href="http://alpha.fluentli.com">Fluentli</a>
+    <p>Nate | Founder at <a href="http://alpha.fluentli.com">Fluentli</a></p>
+    <p>PS - You're getting this because you follow <%= link_to @language, "http://alpha.fluentli.com/languages?following=true" %> and the user, <%= link_to @owner.username, "http://alpha.fluentli.com/profiles/#{@owner.id}" %>.</p>
   </body>
 </html>

@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "hello@fluentli.com"
+  default from: "\"Fluentli\" hello@fluentli.com"
 
   def new_live_chat(hangout, user)
   	@user = user
@@ -7,6 +7,8 @@ class UserMailer < ActionMailer::Base
   	@start_time = hangout.start_time
   	@end_time = hangout.end_time
   	@language = hangout.language.name
+    @title = hangout.name
+    @owner = hangout.user
   	mail(to: @user.email, subject: "There's a new #{@language} chat starting")
   end
 
@@ -16,6 +18,8 @@ class UserMailer < ActionMailer::Base
   	@start_time = hangout.start_time
   	@end_time = hangout.end_time
   	@language = hangout.language.name
+    @title = hangout.name
+    @owner = hangout.user
   	mail(to: @user.email, subject: "Can you join this #{@language} chat?")
   end
 end
