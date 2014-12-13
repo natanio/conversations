@@ -5,7 +5,8 @@ publisher = client.publish('/posts', {
 publisher.callback(function() {
   $('#post_content').val('');
   $('#post_all_tags').val('');
-  $('#new_post').find("input[type='submit']").val('Post').prop('disabled', false)
+  $('#new_post').find("input[type='submit']").val('Post').prop('disabled', false);
+  $('#tagModal').html('<%= escape_javascript( render partial: 'posts/tag_cloud', locals: { hangout: @hangout }  ) %>');
 });
  
 publisher.errback(function() {

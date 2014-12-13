@@ -56,9 +56,7 @@
         <% unless Tag.counts_with_hangout(@hangout.id) != 0 %>
           <p>There are no tags to display.</p>
         <% else %>
-          <% tag_cloud Tag.counts_with_hangout(@hangout.id), %w{css1 css2 css3 css4} do |tag, css_class| %>
-          <%= link_to tag.name, language_hangout_tag_path(@language, @hangout, tag.name), class: css_class %>
-          <% end %>
+          <%= render partial: 'posts/tag_cloud', locals: { hangout: @hangout } %>
         <% end %>
       <a class="close-reveal-modal">&#215;</a>
     </div>
