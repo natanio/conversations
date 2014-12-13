@@ -3,12 +3,14 @@
 		  	<% unless current_user != @profile.user %>
 		  	<div class="text-center row">
 		  		<div style="padding: 2em;" class="center big-bottom large-12 columns">
+		  			<% unless @following_languages.present? %>
+						<h3>Create conversations from you profile: <%= link_to languages_path, id: "End", class: "button success" do %>
+						Follow a language to start <i class="fi-arrow-right"></i>
+						<% end %>
+					<% else %>
 		  			<h3>Schedule a New Conversation for 
 		  			<button href="#" data-dropdown="languages" aria-controls="drop1" aria-expanded="false" class="button dropdown success round">Select Language</button><br>
 					<ul id="languages" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
-						<% unless @following_languages.present? %>
-							<li><%= link_to "Follow a language to start", languages_path %></li>
-						<% else %>
 						<% @following_languages.each do |language| %>
 					  <li><%= link_to language.name, new_language_hangout_path(language) %></li>
 					  <% end %>

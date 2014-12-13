@@ -7,11 +7,11 @@
 	<div class="user-level">
 	</div>
 	<p class="sub-text"><%= @profile.user.location %></p>
-	<a href="#" data-reveal-id="followerModal">Followers <%= @user.followers_by_type_count('User') %></a>, <a href="#" data-reveal-id="followingModal">Following <%= @user.following_by_type_count('User') %></a>
+	<a href="#" data-reveal-id="followerModal">Followers <%= @user.followers_by_type_count('User') %></a>, <a id="numero1" href="#" data-reveal-id="followingModal">Following <%= @user.following_by_type_count('User') %></a>
 	<br>
 	<% if user_signed_in? && current_user == @profile.user %>
 	<%= link_to edit_user_registration_path do %>
-	<i class="fi-widget"></i> Settings
+		<i id="firstStop" class="fi-widget"></i> Settings
 	<% end %>
 	<% else %>
 		<% unless current_user.following?(@profile.user) %>
@@ -39,3 +39,6 @@
 	<%= render 'profiles/followers' %>
   <a class="close-reveal-modal">&#215;</a>
 </div>
+
+<%= render 'profiles/tour' %>
+<%= render 'profiles/tour_js' %>

@@ -5,7 +5,7 @@
 
     <h1>Choose a Language</h1>
     
-    <p>To browse conversations in the languages below, click 'Practice'.</p>
+    <p>Browse languages below or click the <i class="fi-star"></i> to get updates about those languages.</p>
     <button href="#" data-dropdown="sort" aria-controls="drop1" aria-expanded="false" class="button dropdown tiny round">Sort</button><br>
           <ul id="sort" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
             <li><%= link_to 'All', languages_path %></li>
@@ -47,7 +47,7 @@
           <br>
           
           <div class="language-buttons">
-            <%= link_to 'Practice', language_hangouts_path(language), class: "language-button" %>
+            <%= link_to 'Browse', language_hangouts_path(language), class: "language-button" %>
           </div>
         </div>
 
