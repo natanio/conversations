@@ -4,7 +4,7 @@ class FollowsController < ApplicationController
 
 	def create
 		current_user.follow(@profile.user)
-		render :create
+		render :create, locals: { profile: @profile }
 	end
 
 	def destroy
