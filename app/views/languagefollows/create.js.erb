@@ -1,0 +1,2 @@
+$('#follow-language<%= @language.name %>').html('<%= escape_javascript( render partial: 'languages/follow_language', locals: { language: @language }  ) %>');
+$('#<%= @language.name %>-follows').html('<%= @language.followers_count %> Follower<%= if @language.followers_count  > 1 || @language.followers_count == 0 then "s" end %>');

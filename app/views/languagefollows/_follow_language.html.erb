@@ -1,0 +1,9 @@
+<h3><% unless current_user.following?(language) %>
+    <%= link_to languagefollows_path(id: language), remote: true, method: :post, id:"follow-submit", class: "follow-star", title: 'Follow' do %>
+        <i class="fi-star"></i>
+    <% end %>
+<% else %>
+    <%= link_to languagefollow_path(id: language), remote: true, method: :delete, class: "following-star", title: 'Following' do %>
+        <i class="fi-star"></i>
+    <% end %>
+<% end %> <%= language.name %></h3>

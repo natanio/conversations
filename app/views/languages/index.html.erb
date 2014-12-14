@@ -18,18 +18,9 @@
       <div id="pins" class="transitions-enabled small-12 medium-12 large-12">
         <% @languages.each do |language| %>
         <div class="box language-panel text-center">
-         <h3> <% unless current_user.following?(language) %>
-            <%= link_to languagefollows_path(id: language), method: :post, id:"follow-submit", class: "follow-star", title: 'Follow' do %>
-              <i class="fi-star"></i>
-              <% end %>
-            <% else %>
-              <%= link_to languagefollow_path(id: language), method: :delete, class: "following-star", title: 'Following' do %>
-              <i class="fi-star"></i>
-              <% end %>
-            <% end %>
-          <%= language.name %></h3>
+          <div id="follow-language<%= language.name %>"><%= render partial: 'languagefollows/follow_language', locals: {language: language} %></div>
           <div class="row">
-            <p class="language"><a href="#" data-reveal-id="followersModal<%=language.id%>"><i class="fi-torsos-all"></i> <%= language.followers_count %> Follower<%= if language.followers_count  > 1 || language.followers_count == 0 then "s" end %></a></p>
+            <p class="language"><a href="#" data-reveal-id="followersModal<%=language.id%>"><i class="fi-torsos-all"></i> <span id="<%= language.name %>-follows"><%= language.followers_count %> Follower<%= if language.followers_count  > 1 || language.followers_count == 0 then "s" end %></span></a></p>
 
             <%= render partial: "languages/language_followers", locals: {language: language } %>
             
