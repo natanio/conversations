@@ -5,13 +5,11 @@ class LanguagefollowsController < ApplicationController
 	def create
 		current_user.follow(@language)
 		render :create
-		flash[:notice] = "You are now following #{@language.name}."
 	end
 
 	def destroy
 		current_user.stop_following(@language)
 		render :create
-		flash[:alert] = "You stopped following #{@language.name}."
 	end
 
 	private

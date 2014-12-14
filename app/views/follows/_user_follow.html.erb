@@ -1,0 +1,7 @@
+<% unless current_user.following?(profile.user) %>
+	<% unless current_user == profile.user %>
+		<%= link_to 'Follow', follows_path(id: profile), remote: true, method: :post, id:"follow-submit", class: "button small success round tiny" %>
+	<% end %>
+<% else %>
+	<%= link_to 'Unfollow', follow_path(id: profile), remote: true, method: :delete, class: 'button small round secondary tiny' %>
+<% end %>

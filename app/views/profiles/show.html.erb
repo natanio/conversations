@@ -14,11 +14,9 @@
 		<i id="firstStop" class="fi-widget"></i> Settings
 	<% end %>
 	<% else %>
-		<% unless current_user.following?(@profile.user) %>
-			<%= link_to 'Follow', follows_path(id: @profile), method: :post, id:"follow-submit", class: "button small round tiny" %>
-		<% else %>
-			<%= link_to 'Unfollow', follow_path(id: @profile), method: :delete, class: 'button small round secondary tiny' %>
-		<% end %>
+		<div id="<%= @profile.user.username %>-follow">
+			<%= render partial: 'follows/user_follow', locals: { profile: @profile} %>
+		</div>
 	<% end %>
 </div>
 

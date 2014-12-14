@@ -16,11 +16,9 @@
 					<td><%= link_to follower.username, profile_path(follower.profile) %><br>
 						<%= truncate(follower.bio, :length => 60) %></td>
 					<td>
-						<% unless current_user.following?(follower) %>
-						<%= link_to 'Follow', follows_path(id: follower.profile), method: :post, id:"follow-submit", class: "button small success round tiny" %>
-						<% else %>
-						<%= link_to 'Unfollow', follow_path(id: follower.profile), method: :delete, class: 'button small round alert tiny' %>
-						<% end %>
+						<div id="<%= follower.username %>-follow">
+							<%= render partial: 'follows/user_follow', locals: { profile: follower.profile} %>
+						</div>
 					</td>
 				</tr>
 			<% end %>
