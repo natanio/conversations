@@ -29,6 +29,9 @@
           </div>
         </div>
         <div class="chat-description">
+          <%= link_to language_hangout_path(hangout.language, hangout), class: "label round secondary center" do %>
+            <i class="fi-link"></i> View
+            <% end %>
           <p><%= hangout.description %></p>
           <div class="host">
             <%= link_to( image_tag(hangout.user.avatar.url(:thumb)), profile_path(hangout.user)) %>
@@ -57,13 +60,20 @@
             <% else %>
               <li class="chat"><%= link_to 'View', language_hangout_path(hangout.language, hangout), class: "chat-button-big" %></li>
             <% end %>
-            <li class="chat"><div id="<%= 'rsvp-count' + hangout.id.to_s %>"><%= link_to language_hangout_path(hangout.language, hangout), class: "chat-button" do %>
-              <i class="fi-torsos"></i> <%= rsvp_count(hangout) %>
-              <% end %></div></li>
+            <li class="chat">
+              <div id="<%= 'rsvp-count' + hangout.id.to_s %>">
+                <a class="chat-button" href="#" data-reveal-id="chatMembers<%= hangout.id %>"><i class="fi-torsos"></i> <%= rsvp_count(hangout) %></a>
+              </div>
+            </li>
           </ul>
           
         </div>
       </div>
+      <div id="chatMembers<%= hangout.id %>" class="reveal-modal" data-reveal>
+        <%= render partial: 'hangouts/chat_members', locals: { hangout: hangout, user: hangout.user } %>
+        <a class="close-reveal-modal">&#215;</a>
+      </div>
     <% end %>
   </div>
 </div>
+

@@ -1,0 +1,30 @@
+<div class="followers text-center row">
+	<div class="large-12">
+		<table>
+			<tbody>
+				<tr>
+					<td><%= link_to( image_tag(user.avatar.url(:thumb)), profile_path(user.profile)) %></td>
+					<td><%= link_to user.username, profile_path(user.profile), class: "follower-name" %> <span class="label info round">Host</span><br>
+						<p class="follower-bio"><%= truncate(user.bio, :length => 60) %></p></td>
+					<td><%= link_to 'View', profile_path(user.profile), class: "button success round tiny" %></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table>
+			<tbody>
+				
+				<% hangout.rsvps.each do |participant| %>
+				<% unless participant.user == hangout.user %>
+				<tr>
+					<td><%= link_to( image_tag(participant.user.avatar.url(:thumb)), profile_path(participant.user.profile)) %></td>
+					<td><%= link_to participant.user.username, profile_path(participant.user.profile), class: "follower-name" %><br>
+						<p class="follower-bio"><%= truncate(participant.user.bio, :length => 60) %></p></td>
+						<td><%= link_to 'View', profile_path(participant.user.profile), class: "button success round tiny" %></td>
+				</tr>
+				<% end %>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
