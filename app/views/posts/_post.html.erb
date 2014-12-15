@@ -1,7 +1,7 @@
 <%= div_for post do %>
   <div class="large-12 columns border border-box glassy-bg mt pt">
     <strong><%= link_to post.user.username, profile_path(post.user.profile) %></strong>
-      <%= render partial: 'follows/user_follow', locals: { profile: post.user.profile} %>
+      <div class="right"><%= render partial: 'follows/user_follow', locals: { user: post.user } %></div>
     <br />
     <sup class="text-muted">From <%= time_ago_in_words(post.created_at)%></sup><br />
     <div class="mb pb">
