@@ -27,10 +27,7 @@ class ProfilesController < ApplicationController
         @following = @user.following_user
         @following_languages = @user.following_by_type('Language')
 
-        @following_hangouts = Hangout.where(user_id: @following).where(["end_time > ?", Time.now])
-
-        
-        
+        @following_hangouts = Hangout.where(user_id: @following).where(["end_time > ?", Time.now])        
 	end
 
 	private

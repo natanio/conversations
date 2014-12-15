@@ -16,9 +16,7 @@
 					<td><%= link_to follower.username, profile_path(follower.profile) %><br>
 						<%= truncate(follower.bio, :length => 60) %></td>
 					<td>
-						<div id="<%= follower.username %>-follow">
-							<%= render partial: 'follows/user_follow', locals: { profile: follower.profile} %>
-						</div>
+							<%= render partial: 'follows/user_follow', locals: { user: follower } %>
 					</td>
 				</tr>
 			<% end %>

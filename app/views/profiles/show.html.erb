@@ -14,9 +14,7 @@
 		<i id="firstStop" class="fi-widget"></i> Settings
 	<% end %>
 	<% else %>
-		<div id="<%= @profile.user.username %>-follow">
-			<%= render partial: 'follows/user_follow', locals: { profile: @profile} %>
-		</div>
+			<%= render partial: 'follows/user_follow', locals: { user: @profile.user } %>
 	<% end %>
 </div>
 

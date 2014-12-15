@@ -1,0 +1,26 @@
+	<div class="text-center row">
+	<div class="large-12">
+		<h4>People Following <%= @language.name %></h4>
+	      <% if @language.followers_by_type_count('User') == 0 %>
+		  <p>No one is following <%= @language.name %> yet. Why not be the first one?</p>
+			<% else %>
+				<% @language.user_followers.each do |user| %>
+				<div class="user-panel-container">
+					<div class="user-panel">
+				      <div class="clearfix"><%= link_to( image_tag(user.avatar.url(:medium)), profile_path(user.profile), title: "View Profile") %></div>
+					  <%= link_to user.username, profile_path(user.profile), class: "follower-name" %><br>
+					  <p class="follower-bio"><%= truncate(user.bio, :length => 60) %></p>
+					  <p class="follower-bio sub-text">Joined in <%= user.created_at.strftime('%B %Y') %></p>
+					  <p class="sub-text"><% unless !user.location.present? %><i class="fi-marker"></i> <%= user.location %></p><% end%>
+
+					  <p class="sub-text">
+					  	Followers <%= user.followers_by_type_count('User') %>, Following <%= user.following_by_type_count('User') %>
+					  </p>
+
+					  <%= render partial: 'follows/user_follow', locals: { user: user } %>
+					</div>
+				</div>
+				<% end %>
+		  <% end %>
+	</div>
+   </div>

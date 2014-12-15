@@ -20,9 +20,9 @@
         <div class="box language-panel text-center">
           <div id="follow-language<%= language.name %>"><%= render partial: 'languagefollows/follow_language', locals: {language: language} %></div>
           <div class="row">
-            <p class="language"><a href="#" data-reveal-id="followersModal<%=language.id%>"><i class="fi-torsos-all"></i> <span id="<%= language.name %>-follows"><%= language.followers_count %> Follower<%= if language.followers_count  > 1 || language.followers_count == 0 then "s" end %></span></a></p>
-
-            <%= render partial: "languages/language_followers", locals: {language: language } %>
+            <p class="language"><%= link_to language_languages_followers_path(language_id: language) do %>
+              <i class="fi-torsos-all"></i> <span id="<%= language.name %>-follows"><%= language.followers_count %> Follower<%= if language.followers_count  > 1 || language.followers_count == 0 then "s" end %></span></a>
+              <% end %></p>
             
           </div>
           <div class="row">
@@ -46,5 +46,4 @@
       
       </div>
     </div>
-
   <% end %>

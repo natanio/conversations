@@ -1,7 +1,13 @@
-<% unless current_user.following?(profile.user) %>
-	<% unless current_user == profile.user %>
-		<%= link_to 'Follow', follows_path(id: profile), remote: true, method: :post, id:"follow-submit", class: "button small success round tiny" %>
+<div id="<%= user.id %>-follow">
+	<% unless current_user.following?(user) %>
+		<% unless current_user == user %>
+			<%= link_to follows_path(id: user), remote: true, method: :post, id:"follow-submit", class: "button small success round tiny", title: "Follow #{user.username}" do %>
+				<i class="fi-plus"></i> <i class="fi-torso"></i>
+			<% end %>
+		<% end %>
+	<% else %>
+		<%= link_to follow_path(id: user), remote: true, method: :delete, class: 'button small round secondary tiny', title: "You follow #{user.username}" do %>
+				<i class="fi-torso"></i> <i class="fi-check"></i>
+			<% end %>
 	<% end %>
-<% else %>
-	<%= link_to 'Unfollow', follow_path(id: profile), remote: true, method: :delete, class: 'button small round secondary tiny' %>
-<% end %>
+</div>

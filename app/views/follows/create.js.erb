@@ -1,1 +1,1 @@
-$('#<%= @profile.user.username %>-follow').html('<%= escape_javascript( render partial: 'follows/user_follow', locals: { profile: @profile }  ) %>');
+$('#<%= @user.id %>-follow').html('<%= escape_javascript( render partial: 'follows/user_follow', locals: { user: @user }  ) %>');

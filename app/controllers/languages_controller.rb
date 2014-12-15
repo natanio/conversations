@@ -1,5 +1,5 @@
 class LanguagesController < ApplicationController
-  before_action :set_language, only: [:show, :edit, :update, :destroy]
+  before_action :set_language, except: [:index]
   before_action :check_admin, except: [:index]
 
   # GET /languages
@@ -66,10 +66,13 @@ class LanguagesController < ApplicationController
     end
   end
 
+  def languagefollowers
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_language
-      @language = Language.find(params[:id])
+      @language = Language.find(params[:id]) rescue Language.find(params[:language_id])
     end
 
     def check_admin

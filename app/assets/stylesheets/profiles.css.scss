@@ -44,3 +44,27 @@ p.sub-text {
 .tabs {
 	border-bottom: 1px solid #E0E0E0;
 }
+
+/* Language Followers Panels */
+
+.user-panel-container {
+	margin-top: 7em;
+}
+.user-panel {
+	max-width: 450px;
+	margin: 2em auto;
+	background: white;
+	border-radius: 6px;
+	box-shadow: 0px 15px #E8E8E8;
+	border: 1px solid #efefef;
+	border-bottom: 1px solid #D5D5D5;
+}
+.user-panel-container img {
+	max-width: 150px;
+	max-height: 150px;
+	border-radius: 50%;
+	border: 6px solid #9b59b6;
+	top: -75px;
+	position: relative;
+	margin-bottom: -60px;
+}
