@@ -22,4 +22,10 @@ class UserMailer < ActionMailer::Base
     @owner = hangout.user
   	mail(to: @user.email, subject: "Can you join this #{@language} chat?")
   end
+
+  def new_followers(user, followers)
+    @user = user
+    @followers = followers
+    mail(to: @user.email, subject: "You got #{@followers.count} new followers today!")
+  end
 end

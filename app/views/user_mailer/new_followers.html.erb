@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <style>
+  .new-followers img { border-radius: 50%; max-width: 80px;  }
+  </style>
+
+  <body>
+    <p>Hi <%= @user.username %>,</p>
+    <p>
+      You got some new followers today. Great!
+    </p>
+    <div class="new-followers">
+      <% @followers.each do |follower|%>
+        <div class="follower-avatar">
+          <%= link_to( image_tag(follower.avatar.url(:thumb)), profile_path(hangout.user)) %>
+        </div>
+        <div class="follower-info">
+          <p class="follower-name"><%= link_to follower.username, "http://alpha.fluentli.com/profiles/#{follower.id}" %></p>
+          <p class="follower-bio"><%= follower.bio %></p>
+        </div>
+    </div>
+
+    <p>
+      If your followers also follow a language you create a conversation in, they'll get notified.
+    </p>
+    <p>Go say hi!</p>
+    <p>Nate | Founder at <a href="http://alpha.fluentli.com">Fluentli</a></p>
+  </body>
+</html>
