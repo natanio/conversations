@@ -2,28 +2,81 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
   </head>
 
   <style>
-  .new-followers img { border-radius: 50%; max-width: 80px;  }
+    body {
+      background: #f6f6f6;
+    }
+
+    .clearfix:before, .clearfix:after {
+      content: " ";
+      display: table;
+    }
+
+    .user-panel-container {
+      margin-top: 7em;
+      text-align: center;
+    }
+    .user-panel {
+      max-width: 450px;
+      margin: 2em auto;
+      background: white;
+      border-radius: 40px;
+      border-bottom: 15px solid #D5D5D5;
+      border-right: 15px solid #e8e8e8;
+      padding: 0 15px;
+    }
+    .user-panel-container img {
+      max-width: 150px;
+      max-height: 150px;
+      border-radius: 50%;
+      border: 6px solid #9b59b6;
+      top: -75px;
+      position: relative;
+      margin-bottom: -60px;
+    }
+
+    p.follower-bio {
+      margin: 0 auto;
+      max-width: 600px;
+    }
+
+    p.sub-text {
+      color: rgb(145, 145, 145);
+    }
+
+    a.follower-name{ 
+      font-size: 1em;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: bold;
+      color: rgb(95, 95, 95);
+      margin-bottom: 0.5em;
+    }
   </style>
 
   <body>
     <p>Hi <%= @user.username %>,</p>
     <p>
-      You got some new followers today. Great!
+      Take a look at the people who followed you today!
     </p>
-    <div class="new-followers">
-      <% @followers.each do |follower|%>
-        <div class="follower-avatar">
-          <%= link_to( image_tag(follower.avatar.url(:thumb)), profile_path(hangout.user)) %>
-        </div>
-        <div class="follower-info">
-          <p class="follower-name"><%= link_to follower.username, "http://alpha.fluentli.com/profiles/#{follower.id}" %></p>
-          <p class="follower-bio"><%= follower.bio %></p>
-        </div>
-    </div>
+      <% @follows.each do |user|%>
+        <div class="user-panel-container">
+          <div class="user-panel">
+              <div class="clearfix">
+                <%= link_to( image_tag(user.avatar.url(:thumb)), profile_path(user.profile)) %></div>
+              <%= link_to user.username, "http://alpha.fluentli.com/profiles/#{user.id}", class: "follower-name" %><br>
+              <p class="follower-bio"><%= truncate(user.bio, :length => 60) %></p>
+                <p class="follower-bio sub-text">Joined in <%= user.created_at.strftime('%B %Y') %></p>
+                <p class="sub-text"><% unless !user.location.present? %><i class="fi-marker"></i> <%= user.location %></p><% end%>
 
+                <p class="sub-text">
+                  Followers <%= user.followers_by_type_count('User') %>, Following <%= user.following_by_type_count('User') %>
+                </p>  
+          </div>
+        </div>   
+      <% end %>
     <p>
       If your followers also follow a language you create a conversation in, they'll get notified.
     </p>

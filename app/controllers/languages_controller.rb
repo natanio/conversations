@@ -1,6 +1,6 @@
 class LanguagesController < ApplicationController
   before_action :set_language, except: [:index]
-  before_action :check_admin, except: [:index]
+  before_action :check_admin, except: [:index, :languagefollowers]
 
   # GET /languages
   # GET /languages.json

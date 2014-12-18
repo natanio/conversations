@@ -23,9 +23,9 @@ class UserMailer < ActionMailer::Base
   	mail(to: @user.email, subject: "Can you join this #{@language} chat?")
   end
 
-  def new_followers(user, followers)
+  def new_followers(user, follows)
     @user = user
-    @followers = followers
-    mail(to: @user.email, subject: "You got #{@followers.count} new followers today!")
-  end
+    @follows = follows
+    mail(to: @user.email, subject: "You have new followers!")
+end
 end
